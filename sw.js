@@ -3,7 +3,7 @@
  * - Saat berjalan: aset memakai cache lebih dulu (cache-first), halaman memakai jaringan lebih dulu.
  * - Versi cache diganti agar cache lama dibersihkan (GDD 2.13.2).
  */
-const VERSION = "pawon-v9";
+const VERSION = "pawon-v10";
 const SCOPE = self.registration.scope;
 
 const CORE = [
