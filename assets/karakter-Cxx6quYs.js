@@ -1,0 +1,38 @@
+import{$ as e,D as t,F as n,G as r,L as i,R as a,Rt as o,Zt as s,_ as c,b as l,c as u,d,f,g as p,kt as ee,l as te,n as m,o as h,r as g,s as _,t as v,un as y,wt as b}from"./CastLooks-D27q5mLE.js";var x=document.getElementById(`view`),S=new t({canvas:x,antialias:!0});S.setPixelRatio(Math.min(window.devicePixelRatio,2)),S.shadowMap.enabled=!0;var C=new s;C.background=new a(16770756),C.add(new e(13627135,16178336,1.1));var w=new r(16769200,2.2);w.position.set(4,8,5),w.castShadow=!0,w.shadow.camera.left=-3,w.shadow.camera.right=3,w.shadow.camera.top=3,w.shadow.camera.bottom=-3,C.add(w);var T=new b(new n(2.4,32).rotateX(-Math.PI/2),new ee({color:9422399,gradientMap:l}));T.receiveShadow=!0,C.add(T);var E=new o(35,1,.1,50),D=.35,O=.12,k=5.2,A=new y(0,.9,0);function j(){S.setSize(window.innerWidth,window.innerHeight,!1),E.aspect=window.innerWidth/window.innerHeight;let e=window.innerWidth,t=window.innerHeight;e>700?E.setViewOffset(e,t,-170,0,e,t):E.clearViewOffset(),E.updateProjectionMatrix()}window.addEventListener(`resize`,j),j();var M=!1,N=0,P=0;x.addEventListener(`pointerdown`,e=>{M=!0,N=e.clientX,P=e.clientY,x.setPointerCapture(e.pointerId)}),x.addEventListener(`pointerup`,()=>M=!1),x.addEventListener(`pointermove`,e=>{M&&(D-=(e.clientX-N)*.008,O=Math.max(-.2,Math.min(.9,O+(e.clientY-P)*.006)),N=e.clientX,P=e.clientY)}),x.addEventListener(`wheel`,e=>{k=Math.max(1.8,Math.min(9,k+e.deltaY*.004)),e.preventDefault()},{passive:!1});var F,I=null,L=``,R=[`Idle_Loop`,`Idle_Talking_Loop`,`Walk_Loop`,`Walk_Formal_Loop`,`Jog_Fwd_Loop`,`Sprint_Loop`,`Interact`,`Dance_Loop`,`PickUp_Table`,`Push_Loop`],z=!1,B=!1,V=!0;function H(e){F&&C.remove(F.group),F=g(e),I=p.ready?new c(F):null,C.add(F.group),F.face.setTalking(B)}var U=document.getElementById(`panel`),W=e=>`#`+e.toString(16).padStart(6,`0`),G=e=>parseInt(e.slice(1),16);function K(){let e=F.look,t=new Set(e.accessories.map(f));U.innerHTML=`
+    <h1>Pratinjau Karakter</h1>
+    <div class="row"><a href="./">← ke game</a></div>
+    <h2>Tokoh</h2>
+    <div class="row" id="cast">${Object.keys(v).map(e=>`<button data-cast="${e}">${e}</button>`).join(``)}</div>
+    <h2>Rambut</h2>
+    <div class="row"><select id="hair">${h.map(t=>`<option ${t===e.hairStyle?`selected`:``}>${t}</option>`).join(``)}</select>
+      <label>warna <input type="color" id="c-hair" value="${W(e.hair)}"></label></div>
+    <div class="row" style="margin-top:6px"><label><input type="checkbox" id="tip-on" ${e.hairTip>=0?`checked`:``}> warna ujung</label>
+      <input type="color" id="c-tip" value="${W(e.hairTip>=0?e.hairTip:15895472)}"></div>
+    <h2>Warna</h2>
+    <div class="row">
+      <label>kulit <input type="color" id="c-skin" value="${W(e.skin)}"></label>
+      <label>baju <input type="color" id="c-shirt" value="${W(e.shirt)}"></label>
+      <label>celana <input type="color" id="c-pants" value="${W(e.pants)}"></label>
+      <label>sepatu <input type="color" id="c-shoes" value="${W(e.shoes)}"></label>
+      <label>pipi <input type="color" id="c-blush" value="${W(e.blush)}"></label>
+      <label>mata <input type="color" id="c-eyes" value="${W(e.eyes)}"></label>
+    </div>
+    <h2>Aksesori</h2>
+    <div class="row">${d.map(e=>`<label><input type="checkbox" data-acc="${e}" ${t.has(e)?`checked`:``}> ${e}</label>`).join(``)}</div>
+    <h2>Mata, hidung, keriput</h2>
+    <div class="row"><label>mata <select id="eye-style">${u.map(t=>`<option ${t===e.eyeStyle?`selected`:``}>${t}</option>`).join(``)}</select></label>
+      <label>hidung <select id="nose-style">${te.map(t=>`<option ${t===e.noseStyle?`selected`:``}>${t}</option>`).join(``)}</select></label></div>
+    <div class="row" style="margin-top:6px"><label>keriput <input type="range" id="wrinkles" min="0" max="1" step="0.05" value="${e.wrinkles}"></label></div>
+    <h2>Animasi (Universal Animation Library)</h2>
+    <div class="row"><select id="clip"><option value="">(prosedural)</option>${R.map(e=>`<option ${e===L?`selected`:``}>${e}</option>`).join(``)}</select></div>
+    <h2>Ekspresi</h2>
+    <div class="row">${_.map(e=>`<button data-emo="${e}" class="${e===F.face.current?`on`:``}">${e}</button>`).join(``)}</div>
+    <div class="row" style="margin-top:6px">
+      <label><input type="checkbox" id="talk" ${B?`checked`:``}> bicara</label>
+      <label><input type="checkbox" id="walk" ${z?`checked`:``}> jalan</label>
+      <label><input type="checkbox" id="spin" ${V?`checked`:``}> putar</label>
+    </div>
+    <h2>Kode tampilan</h2>
+    <pre id="code"></pre>
+    <div class="row"><button id="copy">Salin</button></div>`;let n=(e,t)=>{let n=document.getElementById(e);n.addEventListener(`input`,()=>{t(n.value,n),J()})};n(`hair`,e=>F.setLook({hairStyle:e})),n(`c-hair`,e=>F.setLook({hair:G(e)}));let r=()=>{let e=document.getElementById(`tip-on`).checked,t=document.getElementById(`c-tip`).value;F.setLook({hairTip:e?G(t):-1})};n(`tip-on`,r),n(`c-tip`,r),n(`c-skin`,e=>F.setLook({skin:G(e)})),n(`c-shirt`,e=>F.setLook({shirt:G(e)})),n(`c-pants`,e=>F.setLook({pants:G(e)})),n(`c-shoes`,e=>F.setLook({shoes:G(e)})),n(`c-blush`,e=>F.setLook({blush:G(e)})),n(`eye-style`,e=>F.setLook({eyeStyle:e})),n(`nose-style`,e=>F.setLook({noseStyle:e})),n(`wrinkles`,e=>F.setLook({wrinkles:parseFloat(e)})),n(`clip`,e=>{L=e,I&&e&&I.play(e,1)}),n(`c-eyes`,e=>F.setLook({eyes:G(e)})),n(`talk`,(e,t)=>{B=t.checked,F.face.setTalking(B)}),n(`walk`,(e,t)=>z=t.checked),n(`spin`,(e,t)=>V=t.checked),U.querySelectorAll(`[data-acc]`).forEach(e=>e.addEventListener(`change`,()=>{let t=e.dataset.acc,n=F.look.accessories.filter(e=>f(e)!==t),r=e.checked?[...n,t]:n;F.setLook({accessories:r}),J()})),U.querySelectorAll(`[data-emo]`).forEach(e=>e.addEventListener(`click`,()=>{F.face.setEmotion(e.dataset.emo),F.look.emotion=e.dataset.emo,U.querySelectorAll(`[data-emo]`).forEach(t=>t.classList.toggle(`on`,t===e)),J()})),U.querySelectorAll(`[data-cast]`).forEach(e=>e.addEventListener(`click`,()=>{H(m(e.dataset.cast)),K()})),document.getElementById(`copy`).addEventListener(`click`,()=>{navigator.clipboard?.writeText(q())}),J()}function q(){let{emotion:e,...t}=F.look,n={...t};return n.scale===1&&delete n.scale,n.hairTip<0&&delete n.hairTip,n.eyeStyle===`bulat`&&delete n.eyeStyle,n.noseStyle===`segitiga`&&delete n.noseStyle,n.wrinkles===0&&delete n.wrinkles,n.accessories.length||delete n.accessories,`{\n${Object.entries(n).map(([e,t])=>`  ${e}: ${typeof t==`number`&&e!==`scale`?`0x`+t.toString(16).padStart(6,`0`):JSON.stringify(t)},`).join(`
+`)}\n}`}function J(){let e=document.getElementById(`code`);e&&(e.textContent=q())}var Y=new i,X=0,Z=0;function Q(e){if(V&&!M&&(D+=e*.5),F.face.update(e),z){Z+=e*1.8,F.group.position.x=Math.cos(Z)*1.1,F.group.position.z=Math.sin(Z)*1.1,F.group.rotation.y=Math.atan2(-Math.sin(Z),Math.cos(Z)),X+=e*8;let t=Math.sin(X)*.7;F.legL.rotation.x=t,F.legR.rotation.x=-t,F.armL.rotation.x=-t*.8,F.armR.rotation.x=t*.8,F.group.position.y=Math.abs(Math.sin(X))*.05}else{for(let e of[F.legL,F.legR,F.armL,F.armR])e.rotation.x*=.8;F.group.position.set(0,0,0),F.group.rotation.y=0}I&&L&&(I.update(e),z||(F.group.position.set(0,0,0),F.group.rotation.y=0)),F.updateHair(e),E.position.set(A.x+Math.sin(D)*Math.cos(O)*k,A.y+Math.sin(O)*k,A.z+Math.cos(D)*Math.cos(O)*k),E.lookAt(A),S.render(C,E)}function $(){Q(Math.min(.1,Y.getDelta())),requestAnimationFrame($)}p.load(`./data/anim.json`).then(()=>{H(m(`tika`)),K(),$()}),window.__karakter={get chibi(){return F},spawn:H,step:Q,setView(e,t,n){D=e,O=t,k=n,V=!1}};
