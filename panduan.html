@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Panduan dan Uji Misi · Pawon Mantyasih</title>
+    <style>
+      :root {
+        --sky: #8ed8f0;
+        --grass: #91c83e;
+        --sand: #f2d18d;
+        --orange: #f28b28;
+        --cream: #fff6e4;
+        --navy: #173653;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: "Trebuchet MS", "Segoe UI", system-ui, sans-serif;
+        color: var(--navy);
+        background: linear-gradient(var(--sky), #d7efe0 380px, var(--grass) 900px, #7fb835);
+        background-attachment: fixed;
+        line-height: 1.5;
+      }
+      main {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 28px 16px 64px;
+      }
+      header.hero {
+        text-align: center;
+        margin-bottom: 22px;
+      }
+      h1 {
+        margin: 0;
+        font-size: clamp(30px, 6vw, 48px);
+        letter-spacing: 2px;
+        color: var(--orange);
+        text-shadow: 3px 3px 0 var(--navy);
+      }
+      .sub {
+        margin: 4px 0 0;
+        font-weight: 700;
+      }
+      .card {
+        background: var(--cream);
+        border: 4px solid var(--navy);
+        border-radius: 18px;
+        padding: 16px 20px;
+        margin: 18px 0;
+        box-shadow: 0 5px 0 rgba(23, 54, 83, 0.3);
+      }
+      h2 {
+        margin: 0 0 8px;
+        font-size: 22px;
+      }
+      h3 {
+        margin: 14px 0 4px;
+        font-size: 17px;
+        color: #b45f10;
+      }
+      ul {
+        margin: 6px 0;
+        padding-left: 22px;
+      }
+      kbd {
+        display: inline-block;
+        min-width: 26px;
+        padding: 0 7px;
+        text-align: center;
+        font: inherit;
+        font-weight: 700;
+        background: #fff;
+        border: 2px solid var(--navy);
+        border-radius: 7px;
+        box-shadow: 0 2px 0 rgba(23, 54, 83, 0.35);
+      }
+      .btn {
+        display: inline-block;
+        padding: 8px 16px;
+        font-weight: 700;
+        color: #fff;
+        background: var(--orange);
+        border: 3px solid var(--navy);
+        border-radius: 12px;
+        text-decoration: none;
+        box-shadow: 0 3px 0 rgba(23, 54, 83, 0.35);
+        white-space: nowrap;
+      }
+      .btn:hover {
+        filter: brightness(1.07);
+      }
+      .btn.alt {
+        background: #fff;
+        color: var(--navy);
+      }
+      .missions {
+        display: grid;
+        gap: 14px;
+      }
+      .mission {
+        background: #fff;
+        border: 3px solid var(--navy);
+        border-radius: 14px;
+        padding: 12px 16px;
+      }
+      .mission .top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .mission h3 {
+        margin: 0;
+        font-size: 18px;
+        color: var(--navy);
+      }
+      .tag {
+        display: inline-block;
+        padding: 0 10px;
+        font-size: 13px;
+        font-weight: 700;
+        color: #fff;
+        background: var(--navy);
+        border-radius: 999px;
+        margin-right: 6px;
+      }
+      .mission p {
+        margin: 6px 0 0;
+      }
+      .note {
+        font-size: 14px;
+        opacity: 0.85;
+      }
+      code {
+        padding: 1px 6px;
+        background: #fff;
+        border: 2px solid rgba(23, 54, 83, 0.35);
+        border-radius: 6px;
+        font-size: 14px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 15px;
+      }
+      th,
+      td {
+        text-align: left;
+        padding: 6px 8px;
+        border-bottom: 2px solid rgba(23, 54, 83, 0.2);
+        vertical-align: top;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header class="hero">
+        <h1>PAWON MANTYASIH</h1>
+        <p class="sub">Panduan mekanik dan tautan uji per misi</p>
+        <p>
+          <a class="btn" href="./">▶ Main dari awal</a>
+          <a class="btn alt" href="./?mission=M01">Mulai M01 (mode uji)</a>
+        </p>
+      </header>
+
+      <section class="card">
+        <h2>Cara memakai halaman ini</h2>
+        <ul>
+          <li>
+            Tombol <b>Coba</b> pada tiap misi membuka game langsung di misi itu. Misi sebelumnya dianggap
+            sudah selesai, jadi kamu tidak perlu memainkan cerita dari awal.
+          </li>
+          <li>
+            Itu <b>mode uji</b>: progres tidak disimpan, jadi simpananmu yang asli aman. Label
+            <i>MODE UJI MISI</i> tampil di bawah layar.
+          </li>
+          <li>
+            Tautan yang sama ada di game: menu utama → <b>Pilih Misi (uji coba)</b>. Kamu juga bisa mengetik
+            alamatnya sendiri, misalnya <code>/?mission=M05</code>.
+          </li>
+          <li class="note">
+            Seluruh teks pada versi ini adalah placeholder dan belum divalidasi narasumber.
+          </li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Kontrol</h2>
+        <table>
+          <tr><th>Aksi</th><th>Desktop</th><th>Layar sentuh</th></tr>
+          <tr><td>Berjalan</td><td><kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> atau panah</td><td>Joystick kiri bawah</td></tr>
+          <tr><td>Memutar kamera</td><td>Seret mouse, roda mouse untuk zoom</td><td>Seret jari di sisi kanan layar</td></tr>
+          <tr><td>Berbicara, mengambil, membuka</td><td><kbd>E</kbd> (juga <kbd>Spasi</kbd> atau <kbd>Enter</kbd> untuk lanjut dialog)</td><td>Tombol <b>E</b> bulat kanan bawah</td></tr>
+          <tr><td>Jurnal</td><td><kbd>J</kbd></td><td>Tombol Jurnal</td></tr>
+          <tr><td>Tas (bahan dan kartu)</td><td><kbd>I</kbd></td><td>Tombol Tas</td></tr>
+          <tr><td>Petunjuk misi</td><td><kbd>H</kbd></td><td>Tombol Petunjuk</td></tr>
+          <tr><td>Jeda dan menu</td><td><kbd>Esc</kbd></td><td>Tombol Jeda</td></tr>
+        </table>
+      </section>
+
+      <section class="card">
+        <h2>Mekanik utama</h2>
+        <h3>Satu dunia yang bersambung</h3>
+        <p>
+          Semua area ada dalam satu dunia tanpa portal. Berjalanlah di jalan setapak dari Desa ke Taman, Pasar,
+          Pawon, Bale Kuliner, lalu Galeri Budaya. Nama area muncul sebagai banner saat kamu memasukinya, dan
+          musik latar ikut berganti. <b>Palang jalan</b> menutup jalan berikutnya sampai misinya selesai: dekati
+          palang dan tekan <kbd>E</kbd> untuk melihat syaratnya.
+        </p>
+        <h3>Penanda tujuan</h3>
+        <p>
+          Panah dan jarak di tengah atas menunjuk tujuan misi. Di lokasi tujuan ada berlian oranye dengan sinar tipis
+          yang terlihat dari jauh.
+        </p>
+        <h3>Jurnal Pawon, tas, dan petunjuk</h3>
+        <p>
+          Jurnal punya 8 halaman yang terbuka satu per satu setiap misi selesai. Tas menyimpan bahan dan kartu
+          pengetahuan. Tombol Petunjuk memberi tiga tingkat bantuan untuk tujuan aktif, dan tiap teka-teki punya
+          petunjuk sendiri dengan tombol <b>Lewati</b> setelah tingkat terakhir. Tidak ada kondisi gagal permanen.
+        </p>
+        <h3>Jenis teka-teki</h3>
+        <ul>
+          <li><b>Cocokkan</b>: pilih satu item di kiri, lalu pasangannya di kanan (M02, M05).</li>
+          <li><b>Pilih</b>: pilihan ganda berantai (M04).</li>
+          <li><b>Tata</b>: letakkan benda di tempatnya di meja (M07).</li>
+          <li><b>Kelompokkan</b>: masukkan banyak kartu ke beberapa panel kategori (M08).</li>
+          <li><b>Geser</b>: dorong objek dengan berjalan ke arahnya (semak di Taman, M03).</li>
+          <li><b>Kuis</b>: 5 soal acak dari bank 12 soal, lulus 3 dari 5, boleh mengulang, jurnal bisa dibuka (M08).</li>
+        </ul>
+        <h3>Memasak</h3>
+        <p>
+          Pilih bahan dari tas, masukkan ke panci (4 slot), lalu tekan Masak. Kombinasi yang belum tepat
+          menghasilkan "masakan percobaan" tanpa hukuman, dan bahan tidak pernah habis.
+        </p>
+        <h3>Simpan otomatis</h3>
+        <p>Progres tersimpan otomatis di perangkat. Tombol <b>Lanjutkan</b> memuatnya kembali.</p>
+      </section>
+
+      <section class="card">
+        <h2>Coba per misi</h2>
+        <div class="missions">
+          <article class="mission">
+            <div class="top">
+              <h3>M01 · Selamat Datang di Mantyasih</h3>
+              <a class="btn" href="./?mission=M01">Coba ▸</a>
+            </div>
+            <p><span class="tag">Desa</span><b>Mekanik:</b> bergerak, memutar kamera, interaksi (E), dialog, menemukan benda.</p>
+            <p><b>Coba:</b> ikuti Tika, buka laci di teras rumah Kakek, lalu bawa Jurnal Pawon ke Kakek di Pendapa.</p>
+          </article>
+          <article class="mission">
+            <div class="top">
+              <h3>M02 · Mengenal Sejarah Mantyasih</h3>
+              <a class="btn" href="./?mission=M02">Coba ▸</a>
+            </div>
+            <p><span class="tag">Desa</span><b>Mekanik:</b> dialog dengan menu pertanyaan, kartu pengetahuan, teka-teki Cocokkan.</p>
+            <p><b>Coba:</b> ajukan semua pertanyaan ke Kakek, cocokkan tiga kartu. Coba jawab salah dan minta petunjuk bertingkat.</p>
+          </article>
+          <article class="mission">
+            <div class="top">
+              <h3>M03 · Menjelajahi Taman Pawon</h3>
+              <a class="btn" href="./?mission=M03">Coba ▸</a>
+            </div>
+            <p><span class="tag">Taman</span><b>Mekanik:</b> eksplorasi, sketsa jurnal, teka-teki geser.</p>
+            <p><b>Coba:</b> cari singkong, kelapa, dan padi. Padi tersembunyi di balik semak: dorong semaknya dengan berjalan ke arahnya.</p>
+          </article>
+          <article class="mission">
+            <div class="top">
+              <h3>M04 · Berburu Bahan Pangan</h3>
+              <a class="btn" href="./?mission=M04">Coba ▸</a>
+            </div>
+            <p><span class="tag">Pasar</span><b>Mekanik:</b> teka-teki pilihan ganda berantai dengan hadiah bahan.</p>
+            <p><b>Coba:</b> bicara dengan Pak Joko dan jawab lima teka-teki ciri bahan. Buka Tas (<kbd>I</kbd>) untuk melihat hasilnya.</p>
+          </article>
+          <article class="mission">
+            <div class="top">
+              <h3>M05 · Mengenal Peralatan Pawon</h3>
+              <a class="btn" href="./?mission=M05">Coba ▸</a>
+            </div>
+            <p><span class="tag">Pawon</span><b>Mekanik:</b> menu pertanyaan dan teka-teki Cocokkan alat dengan fungsinya.</p>
+            <p><b>Coba:</b> tanyakan keempat alat ke Nenek, lalu pasangkan alat dengan penjelasannya.</p>
+          </article>
+          <article class="mission">
+            <div class="top">
+              <h3>M06 · Aktivitas Memasak</h3>
+              <a class="btn" href="./?mission=M06">Coba ▸</a>
+            </div>
+            <p><span class="tag">Pawon</span><b>Mekanik:</b> memasak dengan memilih bahan ke panci, tanpa gagal permanen.</p>
+            <p><b>Coba:</b> bicara dengan Nenek, lalu buka tungku. Coba kombinasi aneh, getuk putih, getuk hitam (singkong + merang), dan getuk cokelat (singkong + gula jawa + kelapa parut).</p>
+          </article>
+          <article class="mission">
+            <div class="top">
+              <h3>M07 · Mengenal Sajian Mantyasih</h3>
+              <a class="btn" href="./?mission=M07">Coba ▸</a>
+            </div>
+            <p><span class="tag">Bale Kuliner</span><b>Mekanik:</b> menu pertanyaan, kartu sajian, teka-teki Tata.</p>
+            <p><b>Coba:</b> tanya Bu Tini tentang getuk, lalu tata daun pisang, getuk, dan kelapa parut di meja.</p>
+          </article>
+          <article class="mission">
+            <div class="top">
+              <h3>M08 · Galeri Budaya</h3>
+              <a class="btn" href="./?mission=M08">Coba ▸</a>
+            </div>
+            <p><span class="tag">Galeri</span><b>Mekanik:</b> kelompokkan kartu, kuis acak 5 soal (lulus 3), penutup cerita.</p>
+            <p><b>Coba:</b> dari podium, kelompokkan 8 kartu ke empat panel, jawab kuis (coba gagal lalu ulang), lalu temui Kakek.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card note">
+        <h2>Menjalankan di komputermu</h2>
+        <p>
+          Dari folder <code>game</code>, jalankan <code>npm install</code> sekali, lalu <code>npm run dev</code>. Buka
+          <code>http://localhost:5173/panduan.html</code>. Untuk versi produksi dan PWA:
+          <code>npm run build</code> lalu <code>npm run preview</code>.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>

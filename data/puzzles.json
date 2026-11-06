@@ -1,0 +1,387 @@
+{
+  "m02_cocokkan": {
+    "id": "m02_cocokkan",
+    "type": "cocokkan",
+    "title": "Cocokkan Kartu Pengetahuan",
+    "prompt": "Pasangkan pertanyaan di jurnal dengan kartu jawabannya. Pilih satu pertanyaan, lalu pilih kartunya.",
+    "pairs": [
+      {
+        "left": "Tahun berapa prasasti di desa ini dibuat?",
+        "right": "907 Masehi"
+      },
+      {
+        "left": "Apa status Mantyasih menurut prasasti itu?",
+        "right": "Tanah sima (bebas pajak)"
+      },
+      {
+        "left": "Sekarang desa ini dikenal dengan nama apa?",
+        "right": "Meteseh (konon)"
+      }
+    ],
+    "hints": [
+      "Ingat kembali cerita Kakek tadi.",
+      "Buka Tas dan baca tiga kartu yang kamu dapat.",
+      "Prasasti = 907 Masehi, status = tanah sima, nama sekarang = Meteseh."
+    ],
+    "event": "puzzle_m02",
+    "successText": "Semua cocok! Halaman baru terbuka di Jurnal Pawon.",
+    "contentId": "P-001",
+    "status": "sourced"
+  },
+  "m04_singkong": {
+    "id": "m04_singkong",
+    "type": "pilih",
+    "title": "Teka-teki Pak Joko",
+    "prompt": "Pak Joko: \"Umbi panjang berkulit cokelat, isinya putih, dan menjadi bahan dasar getuk. Apa aku?\"",
+    "options": [
+      "Singkong",
+      "Jahe",
+      "Bawang merah"
+    ],
+    "answer": 0,
+    "hints": [
+      "Bahan ini dikukus lalu ditumbuk.",
+      "Bentuknya panjang seperti umbi.",
+      "Jawabannya: Singkong."
+    ],
+    "event": "got_singkong",
+    "give": "singkong",
+    "successText": "Betul, itu singkong! Pak Joko memberikannya kepadamu.",
+    "contentId": "P-002",
+    "status": "sourced"
+  },
+  "m04_gula": {
+    "id": "m04_gula",
+    "type": "pilih",
+    "title": "Teka-teki Pak Joko",
+    "prompt": "Pak Joko: \"Rasaku manis, warnaku cokelat, dan aku dipakai untuk getuk cokelat. Siapa aku?\"",
+    "options": [
+      "Garam",
+      "Gula jawa",
+      "Merica"
+    ],
+    "answer": 1,
+    "hints": [
+      "Rasanya manis, bukan asin.",
+      "Warnanya cokelat dan biasa disebut gula merah.",
+      "Jawabannya: Gula jawa."
+    ],
+    "event": "got_gula",
+    "give": "gula_jawa",
+    "successText": "Betul, itu gula jawa!",
+    "contentId": "P-003",
+    "status": "sourced"
+  },
+  "m04_kelapa": {
+    "id": "m04_kelapa",
+    "type": "pilih",
+    "title": "Teka-teki Pak Joko",
+    "prompt": "Pak Joko: \"Aku buah berkulit sabut, dagingku putih dan sering diparut jadi taburan. Siapa aku?\"",
+    "options": [
+      "Nangka",
+      "Kelapa",
+      "Pepaya"
+    ],
+    "answer": 1,
+    "hints": [
+      "Kulitnya berserabut dan keras.",
+      "Dagingnya putih dan diparut.",
+      "Jawabannya: Kelapa."
+    ],
+    "event": "got_kelapa",
+    "give": "kelapa_parut",
+    "successText": "Betul, itu kelapa! Pak Joko memarutkannya untukmu.",
+    "contentId": "P-004",
+    "status": "sourced"
+  },
+  "m04_merang": {
+    "id": "m04_merang",
+    "type": "pilih",
+    "title": "Teka-teki Pak Joko",
+    "prompt": "Pak Joko: \"Aku batang padi yang sudah kering. Abuku bisa menjadi pewarna alami getuk hitam. Apa aku?\"",
+    "options": [
+      "Merang",
+      "Bambu",
+      "Rumput gajah"
+    ],
+    "answer": 0,
+    "hints": [
+      "Aku berasal dari tanaman padi.",
+      "Yang dipakai adalah batangnya yang kering.",
+      "Jawabannya: Merang."
+    ],
+    "event": "got_merang",
+    "give": "merang",
+    "successText": "Betul, itu merang!",
+    "contentId": "P-005",
+    "status": "sourced"
+  },
+  "m04_daun": {
+    "id": "m04_daun",
+    "type": "pilih",
+    "title": "Teka-teki Pak Joko",
+    "prompt": "Pak Joko: \"Aku daun yang lebar dan hijau, sering dipakai sebagai alas atau pembungkus makanan. Siapa aku?\"",
+    "options": [
+      "Daun singkong",
+      "Daun pisang",
+      "Daun mint"
+    ],
+    "answer": 1,
+    "hints": [
+      "Daunnya sangat lebar.",
+      "Aku berasal dari pohon yang buahnya kuning.",
+      "Jawabannya: Daun pisang."
+    ],
+    "event": "got_daun",
+    "give": "daun_pisang",
+    "successText": "Betul, itu daun pisang!",
+    "contentId": "P-006",
+    "status": "draft"
+  },
+  "m05_cocokkan": {
+    "id": "m05_cocokkan",
+    "type": "cocokkan",
+    "title": "Cocokkan Alat Pawon",
+    "prompt": "Pasangkan alat di sebelah kiri dengan penjelasannya di sebelah kanan.",
+    "pairs": [
+      {
+        "left": "🔥 Tungku",
+        "right": "Tempat membakar kayu untuk memasak"
+      },
+      {
+        "left": "♨️ Kukusan",
+        "right": "Untuk mengukus, misalnya singkong"
+      },
+      {
+        "left": "🪨 Lumpang dan alu",
+        "right": "Untuk menumbuk singkong yang sudah empuk"
+      },
+      {
+        "left": "🧺 Tampah",
+        "right": "Wadah pipih dari anyaman bambu"
+      }
+    ],
+    "hints": [
+      "Ingat penjelasan Nenek tadi.",
+      "Satu alat dipakai untuk menumbuk, satu untuk mengukus.",
+      "Tungku = membakar kayu, kukusan = mengukus, lumpang dan alu = menumbuk, tampah = wadah pipih."
+    ],
+    "event": "puzzle_m05",
+    "successText": "Semua cocok! Halaman baru terbuka di Jurnal Pawon.",
+    "contentId": "P-007",
+    "status": "draft"
+  },
+  "m07_tata": {
+    "id": "m07_tata",
+    "type": "tata",
+    "title": "Tata Sajian di Meja",
+    "prompt": "Letakkan setiap benda di tempat yang benar sesuai gambar di jurnal. Pilih satu benda, lalu pilih tempatnya di meja.",
+    "pairs": [
+      {
+        "left": "🍃 Daun pisang",
+        "right": "Alas saji"
+      },
+      {
+        "left": "🟫 Getuk cokelat",
+        "right": "Hidangan utama"
+      },
+      {
+        "left": "🥥 Kelapa parut",
+        "right": "Taburan"
+      }
+    ],
+    "hints": [
+      "Lihat gambar di jurnalmu dan ingat penjelasan Bu Tini.",
+      "Benda yang lebar diletakkan paling bawah, yang ditaburkan paling atas.",
+      "Daun pisang = alas saji, getuk cokelat = hidangan utama, kelapa parut = taburan."
+    ],
+    "event": "puzzle_m07",
+    "successText": "Sajian tertata rapi! Halaman baru terbuka di Jurnal Pawon.",
+    "contentId": "P-008",
+    "status": "draft"
+  },
+  "m08_kelompok": {
+    "id": "m08_kelompok",
+    "type": "kelompokkan",
+    "title": "Susun Panel Pameran",
+    "prompt": "Masukkan setiap kartu ke panel kategorinya. Pilih satu kartu, lalu pilih panelnya.",
+    "pairs": [
+      {
+        "left": "📜 Prasasti 907 M",
+        "right": "Sejarah"
+      },
+      {
+        "left": "🏛️ Tanah sima",
+        "right": "Sejarah"
+      },
+      {
+        "left": "🍠 Singkong",
+        "right": "Bahan"
+      },
+      {
+        "left": "🌾 Merang",
+        "right": "Bahan"
+      },
+      {
+        "left": "🔥 Tungku",
+        "right": "Alat"
+      },
+      {
+        "left": "♨️ Kukusan",
+        "right": "Alat"
+      },
+      {
+        "left": "🟫 Getuk cokelat",
+        "right": "Sajian"
+      },
+      {
+        "left": "🎉 Grebeg Getuk",
+        "right": "Sajian"
+      }
+    ],
+    "hints": [
+      "Ada empat panel: Sejarah, Bahan, Alat, dan Sajian.",
+      "Dua kartu untuk tiap panel.",
+      "Sejarah: prasasti dan tanah sima. Bahan: singkong dan merang. Alat: tungku dan kukusan. Sajian: getuk cokelat dan Grebeg Getuk."
+    ],
+    "event": "galeri_kelompok",
+    "successText": "Pameran tersusun rapi!",
+    "contentId": "P-009",
+    "status": "draft"
+  },
+  "m08_kuis": {
+    "id": "m08_kuis",
+    "type": "kuis",
+    "title": "Kuis Penutup",
+    "prompt": "Jawab pertanyaan berikut. Kamu boleh membuka jurnal untuk membantu. Butuh minimal 3 jawaban benar dari 5.",
+    "count": 5,
+    "pass": 3,
+    "questions": [
+      {
+        "q": "Prasasti Mantyasih bertanggal tahun berapa?",
+        "options": [
+          "907 Masehi",
+          "1907 Masehi",
+          "700 Masehi"
+        ],
+        "answer": 0,
+        "explain": "Prasasti Mantyasih bertanggal 907 Masehi."
+      },
+      {
+        "q": "Apa arti status tanah sima?",
+        "options": [
+          "Wilayah bebas pajak",
+          "Tanah milik pedagang",
+          "Tanah untuk berburu"
+        ],
+        "answer": 0,
+        "explain": "Tanah sima adalah wilayah yang bebas dari pajak."
+      },
+      {
+        "q": "Bahan dasar getuk adalah...",
+        "options": [
+          "Singkong",
+          "Beras",
+          "Jagung"
+        ],
+        "answer": 0,
+        "explain": "Getuk dibuat dari singkong yang dikukus lalu ditumbuk."
+      },
+      {
+        "q": "Bahan untuk getuk cokelat adalah...",
+        "options": [
+          "Garam",
+          "Gula jawa",
+          "Merica"
+        ],
+        "answer": 1,
+        "explain": "Gula jawa memberi warna cokelat dan rasa manis."
+      },
+      {
+        "q": "Abu apa yang dipakai sebagai pewarna alami getuk hitam?",
+        "options": [
+          "Merang",
+          "Kopi",
+          "Cokelat"
+        ],
+        "answer": 0,
+        "explain": "Abu merang, yaitu batang padi kering, dipakai sebagai pewarna alami."
+      },
+      {
+        "q": "Alat untuk menumbuk singkong yang sudah empuk adalah...",
+        "options": [
+          "Tampah",
+          "Lumpang dan alu",
+          "Kukusan"
+        ],
+        "answer": 1,
+        "explain": "Lumpang dan alu dipakai untuk menumbuk."
+      },
+      {
+        "q": "Alat untuk mengukus singkong adalah...",
+        "options": [
+          "Lumpang",
+          "Tampah",
+          "Kukusan"
+        ],
+        "answer": 2,
+        "explain": "Kukusan dipakai untuk mengukus."
+      },
+      {
+        "q": "Pawon adalah...",
+        "options": [
+          "Dapur tradisional Jawa",
+          "Ruang tamu",
+          "Lumbung padi"
+        ],
+        "answer": 0,
+        "explain": "Pawon adalah dapur tradisional Jawa dengan tungku berbahan bakar kayu."
+      },
+      {
+        "q": "Acara yang berakhir dengan perebutan gunungan getuk adalah...",
+        "options": [
+          "Lomba masak",
+          "Grebeg Getuk",
+          "Pasar malam"
+        ],
+        "answer": 1,
+        "explain": "Grebeg Getuk adalah acara puncak hari jadi Magelang."
+      },
+      {
+        "q": "Pentas budaya di Pendopo Mantyasih digelar pada...",
+        "options": [
+          "Setiap hari",
+          "Setahun sekali",
+          "Minggu Pahing"
+        ],
+        "answer": 2,
+        "explain": "Pentas rutin digelar pada Minggu Pahing."
+      },
+      {
+        "q": "Konon, Mantyasih sekarang dikenal sebagai...",
+        "options": [
+          "Meteseh",
+          "Borobudur",
+          "Muntilan"
+        ],
+        "answer": 0,
+        "explain": "Konon Mantyasih kini dikenal sebagai Meteseh di Kota Magelang."
+      },
+      {
+        "q": "Getuk adalah ikon kuliner kota...",
+        "options": [
+          "Yogyakarta",
+          "Magelang",
+          "Semarang"
+        ],
+        "answer": 1,
+        "explain": "Getuk dikenal sebagai ikon kuliner Magelang."
+      }
+    ],
+    "hints": [],
+    "event": "galeri_kuis",
+    "successText": "Kamu lulus kuis!",
+    "contentId": "P-010",
+    "status": "draft"
+  }
+}

@@ -1,0 +1,636 @@
+{
+  "intro_parents": {
+    "npc": "Orang tua",
+    "contentId": "D-001",
+    "status": "draft",
+    "nodes": {
+      "start": {
+        "speaker": "Ayah",
+        "text": "Nak, Ayah dan Ibu ada urusan yang harus diselesaikan. Kamu liburan di rumah Kakek dan Nenek dulu, ya.",
+        "next": "n2"
+      },
+      "n2": {
+        "speaker": "Ibu",
+        "text": "Kabari kami lewat telepon kalau ada apa-apa. Selamat bersenang-senang di Mantyasih!",
+        "next": "n3"
+      },
+      "n3": {
+        "speaker": "Narator",
+        "text": "Orang tuamu pergi. Di dekat gerbang, seorang anak seusiamu melambai ke arahmu."
+      }
+    }
+  },
+  "tika_intro": {
+    "npc": "Tika",
+    "contentId": "D-002",
+    "status": "draft",
+    "endEvent": "talked_tika",
+    "nodes": {
+      "start": {
+        "speaker": "Tika",
+        "text": "Hai! Aku Tika. Kamu cucu Kakek dan Nenek, ya? Selamat datang di Mantyasih!",
+        "next": "n2",
+        "emosi": "semangat"
+      },
+      "n2": {
+        "speaker": "Tika",
+        "text": "Berjalanlah dengan tombol W A S D atau joystick. Tekan E atau tombol interaksi untuk berbicara dan mengambil sesuatu.",
+        "next": "n3",
+        "emosi": "senang"
+      },
+      "n3": {
+        "speaker": "Tika",
+        "text": "Rumah Kakek dan Nenek ada di sebelah kiri jalan, dekat Pendapa. Ayo ke sana!",
+        "emosi": "senang"
+      }
+    }
+  },
+  "tika_repeat": {
+    "npc": "Tika",
+    "contentId": "D-003",
+    "status": "draft",
+    "nodes": {
+      "start": {
+        "speaker": "Tika",
+        "text": "Kalau bingung, tekan tombol Petunjuk di kanan atas. Aku juga bisa bantu!",
+        "emosi": "senang"
+      }
+    }
+  },
+  "laci_jurnal": {
+    "npc": "Laci",
+    "contentId": "D-004",
+    "status": "draft",
+    "endEvent": "found_jurnal",
+    "nodes": {
+      "start": {
+        "speaker": "Narator",
+        "text": "Di dalam laci teras ada sebuah buku tua. Sampulnya bertuliskan \"Jurnal Pawon\".",
+        "next": "n2"
+      },
+      "n2": {
+        "speaker": "Narator",
+        "text": "Halaman pertamanya berisi teka-teki yang belum bisa kamu pahami. Mungkin Kakek tahu sesuatu?"
+      }
+    }
+  },
+  "laci_kosong": {
+    "npc": "Laci",
+    "contentId": "D-005",
+    "status": "draft",
+    "nodes": {
+      "start": {
+        "speaker": "Narator",
+        "text": "Laci ini sudah kosong."
+      }
+    }
+  },
+  "kakek_before": {
+    "npc": "Kakek",
+    "contentId": "D-006",
+    "status": "draft",
+    "nodes": {
+      "start": {
+        "speaker": "Kakek",
+        "text": "Ah, cucu Kakek sudah datang. Kalau ada yang ingin kamu tanyakan, Kakek ada di sini.",
+        "emosi": "senang"
+      }
+    }
+  },
+  "kakek_jurnal": {
+    "npc": "Kakek",
+    "contentId": "D-007",
+    "status": "draft",
+    "endEvent": "talked_kakek",
+    "nodes": {
+      "start": {
+        "speaker": "Kakek",
+        "text": "Wah, dari mana kamu menemukan buku itu?",
+        "choices": [
+          {
+            "text": "Aku menemukannya di laci teras, Kek.",
+            "next": "n2"
+          },
+          {
+            "text": "Buku ini apa, Kek?",
+            "next": "n2"
+          }
+        ],
+        "emosi": "kaget"
+      },
+      "n2": {
+        "speaker": "Kakek",
+        "text": "Jurnal ini baru bisa dipahami kalau kamu mengenal desa ini. Nanti Kakek ceritakan tentang desa kita.",
+        "next": "n3",
+        "emosi": "netral"
+      },
+      "n3": {
+        "speaker": "Kakek",
+        "text": "Temui Kakek lagi sebentar. Kakek ambil kacamata dulu.",
+        "emosi": "senang"
+      }
+    }
+  },
+  "kakek_story": {
+    "npc": "Kakek",
+    "contentId": "D-008",
+    "status": "sourced",
+    "endEvent": "kakek_story_done",
+    "nodes": {
+      "start": {
+        "speaker": "Kakek",
+        "text": "Nah, sekarang kamu mau tahu apa dulu tentang desa kita?",
+        "choices": [
+          {
+            "text": "Ada tulisan kuno di desa ini, Kek?",
+            "next": "a1",
+            "once": true
+          },
+          {
+            "text": "Kenapa desa ini istimewa, Kek?",
+            "next": "a2",
+            "once": true
+          },
+          {
+            "text": "Dulu nama desa ini apa, Kek?",
+            "next": "a3",
+            "once": true
+          }
+        ],
+        "allDone": "fin",
+        "emosi": "senang"
+      },
+      "a1": {
+        "speaker": "Kakek",
+        "text": "Ada. Namanya prasasti, tulisan kuno yang bertanggal tahun 907 Masehi. Kakek tuliskan di kartumu, ya.",
+        "give": "kartu_prasasti",
+        "next": "start"
+      },
+      "a2": {
+        "speaker": "Kakek",
+        "text": "Dalam prasasti itu, Mantyasih disebut sebagai tanah sima, yaitu wilayah yang bebas dari pajak. Ini kartunya.",
+        "give": "kartu_sima",
+        "next": "start"
+      },
+      "a3": {
+        "speaker": "Kakek",
+        "text": "Konon, Mantyasih sekarang dikenal sebagai Meteseh, di Kota Magelang. Kakek tambahkan kartunya.",
+        "give": "kartu_nama",
+        "next": "start"
+      },
+      "fin": {
+        "speaker": "Kakek",
+        "text": "Bagus! Sekarang cocokkan kartu-kartumu dengan pertanyaan di jurnal.",
+        "emosi": "semangat"
+      }
+    }
+  },
+  "kakek_puzzle": {
+    "npc": "Kakek",
+    "contentId": "D-009",
+    "status": "draft",
+    "nodes": {
+      "start": {
+        "speaker": "Kakek",
+        "text": "Sudah dicocokkan kartunya? Ayo kita coba lagi bersama."
+      }
+    }
+  },
+  "kakek_after": {
+    "npc": "Kakek",
+    "contentId": "D-010",
+    "status": "draft",
+    "nodes": {
+      "start": {
+        "speaker": "Kakek",
+        "text": "Hebat! Sekarang jalan-jalanlah ke Taman Pawon lewat gapura di ujung utara jalan. Tika menunggumu di sana.",
+        "emosi": "semangat"
+      }
+    }
+  },
+  "joko_before": {
+    "npc": "Pak Joko",
+    "contentId": "D-011",
+    "status": "draft",
+    "nodes": {
+      "start": {
+        "speaker": "Pak Joko",
+        "text": "Selamat datang di Pasar! Kembali lagi kalau kamu sudah siap, ya.",
+        "emosi": "senang"
+      }
+    }
+  },
+  "joko_intro": {
+    "npc": "Pak Joko",
+    "contentId": "D-012",
+    "status": "draft",
+    "nodes": {
+      "start": {
+        "speaker": "Pak Joko",
+        "text": "Wah, cucunya Pak Tua dari Pendapa, ya! Nenekmu butuh beberapa bahan untuk dimasak.",
+        "next": "n2",
+        "emosi": "kaget"
+      },
+      "n2": {
+        "speaker": "Pak Joko",
+        "text": "Jawab teka-tekiku, nanti bahannya kuberikan. Siap?",
+        "emosi": "semangat"
+      }
+    }
+  },
+  "joko_done": {
+    "npc": "Pak Joko",
+    "contentId": "D-013",
+    "status": "draft",
+    "nodes": {
+      "start": {
+        "speaker": "Pak Joko",
+        "text": "Semua bahan sudah kamu kumpulkan. Bawa ke Nenek di Pawon, lewat gapura di sisi timur Pasar!",
+        "emosi": "senang"
+      }
+    }
+  },
+  "nenek_intro": {
+    "npc": "Nenek",
+    "contentId": "D-014",
+    "status": "draft",
+    "endEvent": "talked_nenek",
+    "nodes": {
+      "start": {
+        "speaker": "Nenek",
+        "text": "Wah, cucu Nenek datang membawa bahan! Kita masak getuk, ya.",
+        "next": "n2",
+        "emosi": "senang"
+      },
+      "n2": {
+        "speaker": "Nenek",
+        "text": "Di jurnalmu ada bayangan tiga bahan. Masukkan bahan yang cocok ke panci di tungku.",
+        "next": "n3"
+      },
+      "n3": {
+        "speaker": "Nenek",
+        "text": "Getuk dibuat dari singkong yang dikukus lalu ditumbuk di lumpang dengan alu. Ayo coba!",
+        "emosi": "semangat"
+      }
+    }
+  },
+  "nenek_repeat": {
+    "npc": "Nenek",
+    "contentId": "D-015",
+    "status": "draft",
+    "nodes": {
+      "start": {
+        "speaker": "Nenek",
+        "text": "Tungkunya ada di sebelah sana. Masukkan bahan ke panci, lalu tekan Masak."
+      }
+    }
+  },
+  "nenek_penutup": {
+    "npc": "Nenek",
+    "contentId": "D-016",
+    "status": "draft",
+    "nodes": {
+      "start": {
+        "speaker": "Nenek",
+        "text": "Wah, getukmu jadi! Cantik sekali, Cu.",
+        "next": "n2",
+        "emosi": "kaget"
+      },
+      "n2": {
+        "speaker": "Nenek",
+        "text": "Getuk ini bisa kita hidangkan di Bale Kuliner. Temui Bu Tini di sana, ya. Bale Kuliner ada di utara Pawon.",
+        "emosi": "senang"
+      }
+    }
+  },
+  "nenek_after": {
+    "npc": "Nenek",
+    "contentId": "D-017",
+    "status": "draft",
+    "nodes": {
+      "start": {
+        "speaker": "Nenek",
+        "text": "Getuk buatanmu enak sekali. Terima kasih sudah membantu Nenek!",
+        "emosi": "malu"
+      }
+    }
+  },
+  "tika_taman_intro": {
+    "npc": "Tika",
+    "contentId": "D-018",
+    "status": "draft",
+    "endEvent": "talked_tika_taman",
+    "nodes": {
+      "start": {
+        "speaker": "Tika",
+        "text": "Selamat datang di Taman Pawon! Di jurnalmu ada sketsa tiga bayangan tanaman. Ayo kita cari bersama.",
+        "next": "n2",
+        "emosi": "semangat"
+      },
+      "n2": {
+        "speaker": "Tika",
+        "text": "Lihat sketsa di panel misi. Kalau ada yang tersembunyi, coba dorong semak dengan berjalan ke arahnya."
+      }
+    }
+  },
+  "tika_taman_repeat": {
+    "npc": "Tika",
+    "contentId": "D-019",
+    "status": "draft",
+    "nodes": {
+      "start": {
+        "speaker": "Tika",
+        "text": "Sudah ketemu semuanya? Kalau ada yang tersembunyi, coba dorong semaknya.",
+        "emosi": "bingung"
+      }
+    }
+  },
+  "tika_taman_after": {
+    "npc": "Tika",
+    "contentId": "D-020",
+    "status": "draft",
+    "nodes": {
+      "start": {
+        "speaker": "Tika",
+        "text": "Hebat, semua tanaman sudah tercatat! Selanjutnya ke Pasar lewat gapura di utara.",
+        "emosi": "semangat"
+      }
+    }
+  },
+  "taman_singkong": {
+    "npc": "Tanaman",
+    "contentId": "D-021",
+    "status": "draft",
+    "endEvent": "found_singkong",
+    "nodes": {
+      "start": {
+        "speaker": "Narator",
+        "text": "Ini tanaman singkong. Umbinya tumbuh terpendam di dalam tanah. Kamu mencatatnya di jurnal."
+      }
+    }
+  },
+  "taman_kelapa": {
+    "npc": "Tanaman",
+    "contentId": "D-022",
+    "status": "draft",
+    "endEvent": "found_kelapa",
+    "nodes": {
+      "start": {
+        "speaker": "Narator",
+        "text": "Ini pohon kelapa. Buahnya berkulit sabut dan berdaging putih. Kamu mencatatnya di jurnal."
+      }
+    }
+  },
+  "taman_padi": {
+    "npc": "Tanaman",
+    "contentId": "D-023",
+    "status": "draft",
+    "endEvent": "found_padi",
+    "nodes": {
+      "start": {
+        "speaker": "Narator",
+        "text": "Ini tanaman padi. Batang padi yang sudah kering disebut merang. Kamu mencatatnya di jurnal."
+      }
+    }
+  },
+  "nenek_alat": {
+    "npc": "Nenek",
+    "contentId": "D-024",
+    "status": "draft",
+    "endEvent": "alat_intro",
+    "nodes": {
+      "start": {
+        "speaker": "Nenek",
+        "text": "Sebelum memasak, kenali dulu alat-alat di pawon. Mau tahu yang mana?",
+        "choices": [
+          {
+            "text": "Yang ada api itu apa, Nek?",
+            "next": "t1",
+            "once": true
+          },
+          {
+            "text": "Yang bentuknya kerucut itu?",
+            "next": "t2",
+            "once": true
+          },
+          {
+            "text": "Yang di meja untuk menumbuk?",
+            "next": "t3",
+            "once": true
+          },
+          {
+            "text": "Yang pipih dan lebar itu?",
+            "next": "t4",
+            "once": true
+          }
+        ],
+        "allDone": "fin",
+        "emosi": "senang"
+      },
+      "t1": {
+        "speaker": "Nenek",
+        "text": "Itu tungku. Kayu dibakar di sana untuk memasak.",
+        "next": "start"
+      },
+      "t2": {
+        "speaker": "Nenek",
+        "text": "Itu kukusan, dipakai untuk mengukus, misalnya singkong.",
+        "next": "start"
+      },
+      "t3": {
+        "speaker": "Nenek",
+        "text": "Itu lumpang dan alu. Dipakai untuk menumbuk, misalnya singkong yang sudah empuk.",
+        "next": "start"
+      },
+      "t4": {
+        "speaker": "Nenek",
+        "text": "Itu tampah, wadah pipih dari anyaman bambu.",
+        "next": "start"
+      },
+      "fin": {
+        "speaker": "Nenek",
+        "text": "Nah, sekarang cocokkan alat-alat itu dengan penjelasannya di jurnalmu.",
+        "emosi": "semangat"
+      }
+    }
+  },
+  "nenek_alat_puzzle": {
+    "npc": "Nenek",
+    "contentId": "D-025",
+    "status": "draft",
+    "nodes": {
+      "start": {
+        "speaker": "Nenek",
+        "text": "Ayo kita cocokkan lagi alat-alatnya."
+      }
+    }
+  },
+  "tini_hub": {
+    "npc": "Bu Tini",
+    "contentId": "D-026",
+    "status": "draft",
+    "endEvent": "tini_intro",
+    "nodes": {
+      "start": {
+        "speaker": "Bu Tini",
+        "text": "Selamat datang di Bale Kuliner! Mau tahu apa tentang sajian kita?",
+        "choices": [
+          {
+            "text": "Sajian apa ini, Bu?",
+            "next": "s1",
+            "once": true
+          },
+          {
+            "text": "Apa getuk punya acara khusus?",
+            "next": "s2",
+            "once": true
+          },
+          {
+            "text": "Bagaimana cara menyajikannya?",
+            "next": "s3",
+            "once": true
+          }
+        ],
+        "allDone": "fin",
+        "emosi": "senang"
+      },
+      "s1": {
+        "speaker": "Bu Tini",
+        "text": "Ini getuk, kudapan dari singkong. Getuk dikenal sebagai ikon kuliner Magelang. Ini kartunya.",
+        "give": "kartu_getuk",
+        "next": "start"
+      },
+      "s2": {
+        "speaker": "Bu Tini",
+        "text": "Ada Grebeg Getuk, acara puncak hari jadi Magelang. Di akhirnya, gunungan getuk diperebutkan warga. Ini kartunya.",
+        "give": "kartu_grebeg",
+        "next": "start"
+      },
+      "s3": {
+        "speaker": "Bu Tini",
+        "text": "Getuk bisa disajikan polos, dengan kelapa parut, atau digoreng. Di sini kami menatanya di atas daun pisang. Ini kartunya.",
+        "give": "kartu_saji",
+        "next": "start"
+      },
+      "fin": {
+        "speaker": "Bu Tini",
+        "text": "Nah, bantu Ibu menata sajiannya di meja sesuai gambar di jurnalmu.",
+        "emosi": "semangat"
+      }
+    }
+  },
+  "tini_puzzle": {
+    "npc": "Bu Tini",
+    "contentId": "D-027",
+    "status": "draft",
+    "nodes": {
+      "start": {
+        "speaker": "Bu Tini",
+        "text": "Ayo kita tata lagi sajiannya di meja."
+      }
+    }
+  },
+  "tini_after": {
+    "npc": "Bu Tini",
+    "contentId": "D-028",
+    "status": "draft",
+    "nodes": {
+      "start": {
+        "speaker": "Bu Tini",
+        "text": "Terima kasih sudah membantu menata! Pamerannya siap dibuka di Galeri Budaya, di utara Bale Kuliner.",
+        "emosi": "senang"
+      }
+    }
+  },
+  "tini_before": {
+    "npc": "Bu Tini",
+    "contentId": "D-029",
+    "status": "draft",
+    "nodes": {
+      "start": {
+        "speaker": "Bu Tini",
+        "text": "Selamat datang di Bale Kuliner!",
+        "emosi": "senang"
+      }
+    }
+  },
+  "galeri_panel": {
+    "npc": "Podium",
+    "contentId": "D-030",
+    "status": "draft",
+    "nodes": {
+      "start": {
+        "speaker": "Narator",
+        "text": "Semua hasil catatanmu tersedia di sini. Susun kartu koleksi di panel pameran sesuai kategorinya: Sejarah, Bahan, Alat, dan Sajian."
+      }
+    }
+  },
+  "kakek_galeri_tunggu": {
+    "npc": "Kakek",
+    "contentId": "D-031",
+    "status": "draft",
+    "nodes": {
+      "start": {
+        "speaker": "Kakek",
+        "text": "Selesaikan dulu pamerannya di podium, ya. Kakek tunggu di sini."
+      }
+    }
+  },
+  "kakek_galeri_after": {
+    "npc": "Kakek",
+    "contentId": "D-032",
+    "status": "draft",
+    "nodes": {
+      "start": {
+        "speaker": "Kakek",
+        "text": "Jurnal itu sekarang milikmu. Teruslah belajar dan bercerita.",
+        "emosi": "senang"
+      }
+    }
+  },
+  "kakek_pesan": {
+    "npc": "Kakek",
+    "contentId": "D-033",
+    "status": "draft",
+    "endEvent": "galeri_pesan",
+    "nodes": {
+      "start": {
+        "speaker": "Kakek",
+        "text": "Cucu Kakek hebat! Semua halaman jurnal sudah terisi. Kakek mau membacakan pesan di halaman terakhir.",
+        "next": "n2",
+        "emosi": "semangat"
+      },
+      "n2": {
+        "speaker": "Kakek",
+        "text": "Pengetahuan desa tetap hidup bila dipelajari, dipraktikkan, dan dibagikan kepada generasi berikutnya. (Placeholder, menunggu narasumber.)",
+        "next": "n3",
+        "emosi": "senang"
+      },
+      "n3": {
+        "speaker": "Narator",
+        "text": "Warga bertepuk tangan. Kamu menulis halaman barumu di Jurnal Pawon."
+      }
+    }
+  },
+  "ending_telepon": {
+    "npc": "Orang tua",
+    "contentId": "D-034",
+    "status": "draft",
+    "nodes": {
+      "start": {
+        "speaker": "Ibu",
+        "text": "Halo, Nak! Bagaimana liburannya di Mantyasih?",
+        "next": "n2"
+      },
+      "n2": {
+        "speaker": "Ayah",
+        "text": "Ceritakan semuanya nanti ya. Kami sudah dalam perjalanan menjemputmu!",
+        "next": "n3"
+      },
+      "n3": {
+        "speaker": "Narator",
+        "text": "Terima kasih sudah bermain! Ini akhir dari prototipe Pawon Mantyasih."
+      }
+    }
+  }
+}

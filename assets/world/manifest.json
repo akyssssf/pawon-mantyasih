@@ -1,0 +1,33 @@
+{
+ "files": [
+  "bench.glb",
+  "bridge.glb",
+  "bunting.glb",
+  "bush.glb",
+  "crate.glb",
+  "fence.glb",
+  "fishingHut.glb",
+  "flowerPot.glb",
+  "house_blue.glb",
+  "house_green.glb",
+  "house_orange.glb",
+  "lamp.glb",
+  "leafPile.glb",
+  "palm.glb",
+  "reeds.glb",
+  "rockWall.glb",
+  "rock_1.glb",
+  "rock_2.glb",
+  "rock_3.glb",
+  "seaStack_1.glb",
+  "seaStack_2.glb",
+  "seaStack_3.glb",
+  "signpost.glb",
+  "stall.glb",
+  "stoneArch.glb",
+  "tree_pine.glb",
+  "tree_round.glb",
+  "well.glb"
+ ],
+ "note": "Aset 3D low poly dari proyek Mikro (milik tim)."
+}

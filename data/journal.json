@@ -1,0 +1,58 @@
+[
+  {
+    "id": "page1",
+    "title": "Halaman 1: Selamat Datang",
+    "unlockQuest": "M01",
+    "sealedHint": "Terbuka setelah misi Selamat Datang di Mantyasih selesai.",
+    "content": "Teka-teki pertama (placeholder): \"Di tempat orang bercerita, jawabannya akan kamu temukan.\" Tanyakan kepada Kakek."
+  },
+  {
+    "id": "page2",
+    "title": "Halaman 2: Sejarah",
+    "unlockQuest": "M02",
+    "sealedHint": "Terbuka setelah misi Mengenal Sejarah Mantyasih selesai.",
+    "content": "Catatan (draft, belum divalidasi narasumber): prasasti Mantyasih bertanggal 907 Masehi. Dalam prasasti itu Mantyasih disebut tanah sima, yaitu wilayah bebas pajak. Konon desa ini sekarang dikenal sebagai Meteseh di Kota Magelang. Petunjuk berikutnya: ada taman di ujung utara jalan desa, di sana ada tiga tanaman yang perlu dicatat."
+  },
+  {
+    "id": "page3",
+    "title": "Halaman 3: Taman Pawon",
+    "unlockQuest": "M03",
+    "sealedHint": "Terbuka setelah misi Menjelajahi Taman Pawon selesai.",
+    "content": "Catatan (draft): di Taman Pawon tumbuh singkong (umbinya terpendam di tanah), kelapa (buahnya berkulit sabut), dan padi (batang keringnya disebut merang). Petunjuk berikutnya: ada orang di Pasar yang punya teka-teki bahan pangan."
+  },
+  {
+    "id": "page4",
+    "title": "Halaman 4: Bahan Pangan",
+    "unlockQuest": "M04",
+    "sealedHint": "Terbuka setelah misi Berburu Bahan Pangan selesai.",
+    "content": "Catatan (draft): bahan yang terkumpul adalah singkong, gula jawa, kelapa parut, merang, dan daun pisang. Petunjuk berikutnya: bawa semuanya ke pawon Nenek."
+  },
+  {
+    "id": "page5",
+    "title": "Halaman 5: Peralatan Pawon",
+    "unlockQuest": "M05",
+    "sealedHint": "Terbuka setelah misi Mengenal Peralatan Pawon selesai.",
+    "content": "Catatan (draft): tungku untuk membakar kayu, kukusan untuk mengukus, lumpang dan alu untuk menumbuk, dan tampah wadah pipih dari anyaman bambu. Petunjuk berikutnya: masak getuk di tungku bersama Nenek."
+  },
+  {
+    "id": "page6",
+    "title": "Halaman 6: Memasak",
+    "unlockQuest": "M06",
+    "sealedHint": "Terbuka setelah misi Aktivitas Memasak selesai.",
+    "content": "Catatan (draft): getuk dibuat dari singkong yang dikukus lalu ditumbuk. Getuk cokelat memakai gula jawa dan ditaburi kelapa parut. Getuk hitam memakai abu merang sebagai pewarna alami."
+  },
+  {
+    "id": "page7",
+    "title": "Halaman 7: Sajian",
+    "unlockQuest": "M07",
+    "sealedHint": "Terbuka setelah misi Mengenal Sajian Mantyasih selesai.",
+    "content": "Catatan (draft): getuk adalah kudapan dari singkong, ikon kuliner Magelang. Ada Grebeg Getuk, acara puncak hari jadi Magelang yang berakhir dengan perebutan gunungan getuk. Getuk disajikan polos, dengan kelapa parut, atau digoreng, dan di sini ditata di atas daun pisang. Petunjuk berikutnya: Galeri Budaya menunggu."
+  },
+  {
+    "id": "page8",
+    "title": "Halaman 8: Pesan Warisan",
+    "unlockQuest": "M08",
+    "sealedHint": "Terbuka setelah misi Galeri Budaya selesai.",
+    "content": "Pesan warisan (placeholder, menunggu narasumber): pengetahuan desa tetap hidup bila dipelajari, dipraktikkan, dan dibagikan kepada generasi berikutnya. Sekarang giliranmu menulis halaman berikutnya."
+  }
+]

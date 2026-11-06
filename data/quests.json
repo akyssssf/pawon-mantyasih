@@ -1,0 +1,257 @@
+{
+  "M01": {
+    "id": "M01",
+    "title": "Selamat Datang di Mantyasih",
+    "objectives": [
+      {
+        "id": "talked_tika",
+        "text": "Temui Tika di dekat gerbang",
+        "hints": [
+          "Cari anak yang melambai di dekat gerbang.",
+          "Tika berada di sisi kanan jalan, tidak jauh dari gerbang desa.",
+          "Berjalan ke gerbang, dekati Tika, lalu tekan E."
+        ]
+      },
+      {
+        "id": "found_jurnal",
+        "text": "Temukan Jurnal Pawon di teras rumah",
+        "hints": [
+          "Rumah Kakek dan Nenek ada di sebelah kiri jalan.",
+          "Periksa benda di teras rumah, di sisi yang menghadap jalan.",
+          "Dekati laci kayu di teras lalu tekan E."
+        ]
+      },
+      {
+        "id": "talked_kakek",
+        "text": "Bawa jurnal ke Kakek di Pendapa",
+        "hints": [
+          "Kakek biasa duduk di bangunan terbuka di ujung jalan.",
+          "Pendapa ada di sisi kanan jalan, di bagian dalam desa.",
+          "Dekati Kakek di depan Pendapa lalu tekan E."
+        ]
+      }
+    ]
+  },
+  "M02": {
+    "id": "M02",
+    "title": "Mengenal Sejarah Mantyasih",
+    "objectives": [
+      {
+        "id": "kakek_story_done",
+        "text": "Dengarkan cerita Kakek di Pendapa",
+        "hints": [
+          "Kakek menunggu di Pendapa.",
+          "Tanyakan semua hal yang ingin kamu ketahui kepada Kakek.",
+          "Dekati Kakek lalu tekan E dan pilih semua pertanyaan."
+        ]
+      },
+      {
+        "id": "puzzle_m02",
+        "text": "Cocokkan kartu pengetahuan",
+        "hints": [
+          "Bicaralah lagi dengan Kakek untuk membuka teka-teki kartu.",
+          "Setiap pertanyaan punya satu kartu jawaban.",
+          "Buka teka-teki, lalu pakai tombol Petunjuk di dalamnya."
+        ]
+      }
+    ]
+  },
+  "M03": {
+    "id": "M03",
+    "title": "Menjelajahi Taman Pawon",
+    "objectives": [
+      {
+        "id": "talked_tika_taman",
+        "text": "Temui Tika di Taman Pawon",
+        "hints": [
+          "Taman Pawon ada di ujung utara jalan desa.",
+          "Lewati gapura \"KE TAMAN\" di ujung jalan, Tika menunggu tidak jauh dari pintu masuk.",
+          "Dekati Tika lalu tekan E."
+        ]
+      },
+      {
+        "id": "found_singkong",
+        "text": "Temukan tanaman penghasil umbi",
+        "hints": [
+          "Cari tanaman di petak tanah sisi kiri taman.",
+          "Tanaman itu berdaun menjari dan umbinya terpendam.",
+          "Dekati tanaman singkong lalu tekan E."
+        ]
+      },
+      {
+        "id": "found_kelapa",
+        "text": "Temukan pohon berbuah sabut",
+        "hints": [
+          "Cari pohon yang tinggi di sisi kanan taman.",
+          "Buahnya berkulit sabut dan berdaging putih.",
+          "Dekati pohon kelapa lalu tekan E."
+        ]
+      },
+      {
+        "id": "found_padi",
+        "text": "Temukan tanaman yang tersembunyi",
+        "hints": [
+          "Ada tanaman yang tidak terlihat di sudut kiri belakang taman.",
+          "Sebuah semak besar menutupinya. Dorong semaknya dengan berjalan ke arahnya.",
+          "Setelah semak bergeser, dekati tanaman padi lalu tekan E."
+        ]
+      }
+    ]
+  },
+  "M04": {
+    "id": "M04",
+    "title": "Berburu Bahan Pangan",
+    "objectives": [
+      {
+        "id": "got_singkong",
+        "text": "Dapatkan singkong",
+        "hints": [
+          "Pak Joko ada di tengah Pasar.",
+          "Jalan terus ke utara dari Pendapa sampai ke Pasar.",
+          "Dekati Pak Joko lalu tekan E dan jawab teka-tekinya."
+        ]
+      },
+      {
+        "id": "got_gula",
+        "text": "Dapatkan gula jawa",
+        "hints": [
+          "Bicaralah dengan Pak Joko lagi.",
+          "Perhatikan ciri rasa dan warna.",
+          "Tekan E di dekat Pak Joko."
+        ]
+      },
+      {
+        "id": "got_kelapa",
+        "text": "Dapatkan kelapa parut",
+        "hints": [
+          "Bicaralah dengan Pak Joko lagi.",
+          "Perhatikan ciri kulit dan isinya.",
+          "Tekan E di dekat Pak Joko."
+        ]
+      },
+      {
+        "id": "got_merang",
+        "text": "Dapatkan merang",
+        "hints": [
+          "Bicaralah dengan Pak Joko lagi.",
+          "Ingat apa yang dibuat dari abunya.",
+          "Tekan E di dekat Pak Joko."
+        ]
+      },
+      {
+        "id": "got_daun",
+        "text": "Dapatkan daun pisang",
+        "hints": [
+          "Bicaralah dengan Pak Joko lagi.",
+          "Daun ini lebar dan berwarna hijau.",
+          "Tekan E di dekat Pak Joko."
+        ]
+      }
+    ]
+  },
+  "M05": {
+    "id": "M05",
+    "title": "Mengenal Peralatan Pawon",
+    "objectives": [
+      {
+        "id": "alat_intro",
+        "text": "Dengarkan Nenek memperkenalkan alat dapur",
+        "hints": [
+          "Nenek menunggu di dalam Pawon.",
+          "Pawon ada di sebelah timur Pasar.",
+          "Dekati Nenek lalu tekan E dan tanyakan semua alat."
+        ]
+      },
+      {
+        "id": "puzzle_m05",
+        "text": "Cocokkan alat dengan fungsinya",
+        "hints": [
+          "Bicaralah lagi dengan Nenek untuk membuka teka-teki alat.",
+          "Setiap alat punya satu penjelasan fungsi.",
+          "Pakai tombol Petunjuk di dalam teka-teki."
+        ]
+      }
+    ]
+  },
+  "M06": {
+    "id": "M06",
+    "title": "Aktivitas Memasak",
+    "objectives": [
+      {
+        "id": "talked_nenek",
+        "text": "Temui Nenek di Pawon",
+        "hints": [
+          "Pawon ada di sebelah timur Pasar.",
+          "Lewati gapura \"KE PAWON\" di sisi timur Pasar.",
+          "Dekati Nenek di dalam Pawon lalu tekan E."
+        ]
+      },
+      {
+        "id": "cooked_getuk",
+        "text": "Masak getuk di tungku",
+        "hints": [
+          "Tungku ada di sudut Pawon, dekat Nenek.",
+          "Dekati tungku lalu tekan E untuk membuka panci.",
+          "Masukkan singkong, gula jawa, dan kelapa parut, lalu tekan Masak."
+        ]
+      }
+    ]
+  },
+  "M07": {
+    "id": "M07",
+    "title": "Mengenal Sajian Mantyasih",
+    "objectives": [
+      {
+        "id": "tini_intro",
+        "text": "Dengarkan penjelasan Bu Tini",
+        "hints": [
+          "Bale Kuliner ada di sebelah utara Pawon.",
+          "Lewati gapura \"KE BALE\" di sisi utara Pawon.",
+          "Dekati Bu Tini lalu tekan E dan tanyakan semua hal."
+        ]
+      },
+      {
+        "id": "puzzle_m07",
+        "text": "Tata sajian di meja",
+        "hints": [
+          "Bicaralah lagi dengan Bu Tini untuk membuka teka-teki menata sajian.",
+          "Alas, hidangan, dan taburan punya tempatnya masing-masing.",
+          "Daun pisang = alas, getuk cokelat = hidangan utama, kelapa parut = taburan."
+        ]
+      }
+    ]
+  },
+  "M08": {
+    "id": "M08",
+    "title": "Galeri Budaya",
+    "objectives": [
+      {
+        "id": "galeri_kelompok",
+        "text": "Susun kartu koleksi di panel pameran",
+        "hints": [
+          "Galeri Budaya ada di sebelah utara Bale Kuliner.",
+          "Dekati podium di tengah galeri.",
+          "Tekan E di podium lalu kelompokkan setiap kartu ke kategorinya."
+        ]
+      },
+      {
+        "id": "galeri_kuis",
+        "text": "Jawab kuis penutup",
+        "hints": [
+          "Kuis dibuka dari podium yang sama setelah kartu tersusun.",
+          "Kamu boleh membuka jurnal saat menjawab.",
+          "Butuh minimal 3 jawaban benar dari 5. Boleh mengulang."
+        ]
+      },
+      {
+        "id": "galeri_pesan",
+        "text": "Dengarkan pesan dari Kakek",
+        "hints": [
+          "Kakek berdiri di sisi kiri galeri.",
+          "Selesaikan pameran dulu, lalu temui Kakek.",
+          "Dekati Kakek lalu tekan E."
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "jurnal": {
+    "id": "jurnal",
+    "name": "Jurnal Pawon",
+    "category": "jurnal",
+    "icon": "📖",
+    "description": "Buku tua berisi sketsa dan teka-teki. Placeholder."
+  },
+  "kartu_prasasti": {
+    "id": "kartu_prasasti",
+    "name": "Kartu: Prasasti",
+    "category": "kartu",
+    "icon": "📜",
+    "description": "Prasasti Mantyasih bertanggal 907 M. (draft)"
+  },
+  "kartu_sima": {
+    "id": "kartu_sima",
+    "name": "Kartu: Tanah Sima",
+    "category": "kartu",
+    "icon": "🏛️",
+    "description": "Mantyasih disebut sebagai tanah sima, yaitu wilayah bebas pajak. (draft)"
+  },
+  "kartu_nama": {
+    "id": "kartu_nama",
+    "name": "Kartu: Nama Desa",
+    "category": "kartu",
+    "icon": "📍",
+    "description": "Konon Mantyasih kini dikenal sebagai Meteseh di Kota Magelang. (draft, satu sumber)"
+  },
+  "singkong": {
+    "id": "singkong",
+    "name": "Singkong",
+    "category": "bahan",
+    "icon": "🍠",
+    "description": "Umbi yang dikukus dan ditumbuk untuk membuat getuk. (draft)"
+  },
+  "gula_jawa": {
+    "id": "gula_jawa",
+    "name": "Gula jawa",
+    "category": "bahan",
+    "icon": "🟤",
+    "description": "Gula merah untuk getuk cokelat. (draft)"
+  },
+  "kelapa_parut": {
+    "id": "kelapa_parut",
+    "name": "Kelapa parut",
+    "category": "bahan",
+    "icon": "🥥",
+    "description": "Taburan pelengkap getuk. (draft)"
+  },
+  "merang": {
+    "id": "merang",
+    "name": "Merang",
+    "category": "bahan",
+    "icon": "🌾",
+    "description": "Batang padi kering, abunya jadi pewarna alami getuk hitam. (draft)"
+  },
+  "daun_pisang": {
+    "id": "daun_pisang",
+    "name": "Daun pisang",
+    "category": "bahan",
+    "icon": "🍃",
+    "description": "Daun lebar untuk alas atau pembungkus. (draft, belum bersumber)"
+  },
+  "getuk_cokelat": {
+    "id": "getuk_cokelat",
+    "name": "Getuk cokelat",
+    "category": "masakan",
+    "icon": "🟫",
+    "description": "Getuk buatanmu: singkong, gula jawa, dan kelapa parut. (draft)"
+  },
+  "getuk_putih": {
+    "id": "getuk_putih",
+    "name": "Getuk putih",
+    "category": "masakan",
+    "icon": "⬜",
+    "description": "Getuk polos dari singkong. (draft)"
+  },
+  "getuk_hitam": {
+    "id": "getuk_hitam",
+    "name": "Getuk hitam",
+    "category": "masakan",
+    "icon": "⬛",
+    "description": "Getuk berwarna hitam dari abu merang. (draft)"
+  },
+  "kartu_getuk": {
+    "id": "kartu_getuk",
+    "name": "Kartu: Getuk",
+    "category": "kartu",
+    "icon": "🍡",
+    "description": "Getuk adalah kudapan dari singkong, ikon kuliner Magelang. (draft)"
+  },
+  "kartu_grebeg": {
+    "id": "kartu_grebeg",
+    "name": "Kartu: Grebeg Getuk",
+    "category": "kartu",
+    "icon": "🎉",
+    "description": "Acara puncak hari jadi Magelang, diakhiri perebutan gunungan getuk. (draft, satu sumber)"
+  },
+  "kartu_saji": {
+    "id": "kartu_saji",
+    "name": "Kartu: Penyajian",
+    "category": "kartu",
+    "icon": "🍽️",
+    "description": "Getuk disajikan polos, dengan kelapa parut, atau digoreng. (draft)"
+  }
+}

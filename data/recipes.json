@@ -1,0 +1,51 @@
+{
+  "getuk_cokelat": {
+    "id": "getuk_cokelat",
+    "name": "Getuk cokelat",
+    "ingredients": ["singkong", "gula_jawa", "kelapa_parut"],
+    "result": "getuk_cokelat",
+    "target": true,
+    "event": "cooked_getuk",
+    "description": "Singkong dikukus dan ditumbuk, dicampur gula jawa, lalu ditaburi kelapa parut.",
+    "steps": [
+      "Singkong dikukus di atas tungku kayu...",
+      "Singkong yang empuk ditumbuk di lumpang dengan alu...",
+      "Gula jawa dicampurkan sampai adonan berwarna cokelat...",
+      "Kelapa parut ditaburkan di atasnya."
+    ],
+    "contentId": "R-001",
+    "status": "sourced"
+  },
+  "getuk_putih": {
+    "id": "getuk_putih",
+    "name": "Getuk putih",
+    "ingredients": ["singkong"],
+    "result": "getuk_putih",
+    "description": "Getuk polos dari singkong tanpa tambahan warna.",
+    "steps": [
+      "Singkong dikukus di atas tungku kayu...",
+      "Singkong yang empuk ditumbuk di lumpang dengan alu..."
+    ],
+    "contentId": "R-002",
+    "status": "sourced"
+  },
+  "getuk_hitam": {
+    "id": "getuk_hitam",
+    "name": "Getuk hitam",
+    "ingredients": ["singkong", "merang"],
+    "result": "getuk_hitam",
+    "description": "Getuk berwarna hitam dari abu merang sebagai pewarna alami.",
+    "steps": [
+      "Singkong dikukus di atas tungku kayu...",
+      "Singkong ditumbuk di lumpang dengan alu...",
+      "Abu merang dicampurkan sebagai pewarna alami."
+    ],
+    "contentId": "R-003",
+    "status": "sourced"
+  },
+  "_hints": [
+    "Nenek: Lihat bayangan bahan di jurnalmu. Ada tiga bahan yang cocok.",
+    "Nenek: Getuk dasarnya dari singkong. Satu bahan memberi rasa manis, satu lagi jadi taburan.",
+    "Nenek: Coba singkong, gula jawa, dan kelapa parut."
+  ]
+}

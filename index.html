@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no"
+    />
+    <meta name="theme-color" content="#8ED8F0" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Pawon" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" type="image/png" href="./icons/icon-192.png" />
+    <link rel="apple-touch-icon" href="./icons/icon-192.png" />
+    <title>Pawon Mantyasih</title>
+    <script type="module" crossorigin src="./assets/main-JJapyXw3.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/CastLooks-CuBzDIkf.js">
+    <link rel="stylesheet" crossorigin href="./assets/main-CQSuWLfL.css">
+  </head>
+  <body>
+    <canvas id="game-canvas"></canvas>
+
+    <!-- HUD -->
+    <div id="hud" class="hidden">
+      <section id="mission" class="panel">
+        <h2 id="mission-title">Misi</h2>
+        <ul id="mission-list"></ul>
+        <div id="mission-sketch" class="hidden"></div>
+      </section>
+
+      <div id="actions">
+        <button id="btn-journal" class="icon-btn" aria-label="Buka jurnal (J)">
+          <span class="ico">📖</span><span class="lbl">Jurnal</span>
+        </button>
+        <button id="btn-inventory" class="icon-btn" aria-label="Buka tas (I)">
+          <span class="ico">🎒</span><span class="lbl">Tas</span>
+        </button>
+        <button id="btn-hint" class="icon-btn" aria-label="Petunjuk (H)">
+          <span class="ico">💡</span><span class="lbl">Petunjuk</span>
+        </button>
+        <button id="btn-pause" class="icon-btn" aria-label="Jeda (Esc)">
+          <span class="ico">⏸</span><span class="lbl">Jeda</span>
+        </button>
+      </div>
+
+      <div id="objective" class="hidden" aria-live="off">
+        <span id="obj-arrow">➤</span>
+        <span id="obj-text"></span>
+      </div>
+      <div id="sandbox-tag" class="hidden">MODE UJI MISI</div>
+      <div id="prompt" class="panel hidden"></div>
+      <div id="toast" class="panel hidden"></div>
+
+      <div id="joystick" class="hidden"><div id="stick"></div></div>
+      <button id="btn-interact" class="hidden" aria-label="Interaksi">E</button>
+    </div>
+
+    <!-- Dialog -->
+    <section id="dialog" class="panel hidden">
+      <div id="dialog-name"></div>
+      <span id="dialog-status" class="tag hidden"></span>
+      <p id="dialog-text"></p>
+      <div id="dialog-choices"></div>
+      <button id="dialog-next" class="btn">Lanjut ▸</button>
+    </section>
+
+    <!-- Teka-teki -->
+    <section id="puzzle" class="overlay hidden">
+      <div class="panel big">
+        <header>
+          <h2 id="puzzle-title">Teka-teki</h2>
+          <button id="puzzle-close" class="btn small">Nanti saja</button>
+        </header>
+        <p id="puzzle-prompt"></p>
+        <div id="puzzle-body"></div>
+        <p id="puzzle-feedback" role="status" aria-live="polite"></p>
+        <footer>
+          <button id="puzzle-hint" class="btn">💡 Petunjuk</button>
+          <button id="puzzle-journal" class="btn hidden">📖 Buka jurnal</button>
+          <button id="puzzle-skip" class="btn hidden">Lewati</button>
+          <button id="puzzle-done" class="btn primary hidden">Lanjut ▸</button>
+        </footer>
+      </div>
+    </section>
+
+    <!-- Memasak -->
+    <section id="cooking" class="overlay hidden">
+      <div class="panel big">
+        <header>
+          <h2>Memasak di Pawon</h2>
+          <button id="cook-close" class="btn small">Tutup</button>
+        </header>
+        <p id="cook-clue"></p>
+        <div id="cook-area">
+          <div id="cook-bag" class="col"></div>
+          <div id="cook-potwrap">
+            <div class="pot-label">🍲 Panci</div>
+            <div id="cook-pot"></div>
+          </div>
+        </div>
+        <p id="cook-feedback" role="status" aria-live="polite"></p>
+        <footer>
+          <button id="cook-go" class="btn primary">🍳 Masak</button>
+          <button id="cook-clear" class="btn">Kembalikan bahan</button>
+          <button id="cook-hint" class="btn">💡 Nenek</button>
+        </footer>
+      </div>
+    </section>
+
+    <!-- Journal -->
+    <section id="journal" class="overlay hidden">
+      <div class="panel big">
+        <header>
+          <h2>Jurnal Pawon</h2>
+          <button class="btn small" data-close="journal">Tutup</button>
+        </header>
+        <div id="journal-body"></div>
+        <footer>
+          <button id="journal-prev" class="btn">◂ Sebelumnya</button>
+          <span id="journal-count"></span>
+          <button id="journal-next" class="btn">Berikutnya ▸</button>
+        </footer>
+      </div>
+    </section>
+
+    <!-- Inventory -->
+    <section id="inventory" class="overlay hidden">
+      <div class="panel big">
+        <header>
+          <h2>Tas</h2>
+          <button class="btn small" data-close="inventory">Tutup</button>
+        </header>
+        <div id="inventory-body"></div>
+      </div>
+    </section>
+
+    <!-- Pilih misi (mode uji) -->
+    <section id="missions" class="overlay hidden">
+      <div class="panel big">
+        <header>
+          <h2>Pilih Misi</h2>
+          <button class="btn small" data-close="missions">Tutup</button>
+        </header>
+        <p class="note">
+          Mulai langsung dari misi mana pun. Misi sebelumnya dianggap sudah selesai. Progres pada mode
+          ini tidak disimpan, jadi simpananmu aman.
+        </p>
+        <div id="missions-list"></div>
+      </div>
+    </section>
+
+    <!-- Pause -->
+    <section id="pause" class="overlay hidden">
+      <div class="panel menu-panel">
+        <h2>Jeda</h2>
+        <button id="pause-resume" class="btn">Lanjut</button>
+        <button id="pause-journal" class="btn">Jurnal</button>
+        <button id="pause-settings" class="btn">Pengaturan</button>
+        <button id="pause-menu" class="btn">Menu Utama</button>
+      </div>
+    </section>
+
+    <!-- Settings -->
+    <section id="settings" class="overlay hidden">
+      <div class="panel menu-panel">
+        <h2>Pengaturan</h2>
+        <label class="row"
+          ><input type="checkbox" id="set-audio" checked /> Suara aktif</label
+        >
+        <label class="slider"
+          >Musik <input type="range" id="set-music" min="0" max="100" step="5"
+        /></label>
+        <label class="slider"
+          >Efek suara <input type="range" id="set-sfx" min="0" max="100" step="5"
+        /></label>
+        <label class="row"
+          ><input type="checkbox" id="set-large-text" /> Ukuran teks besar</label
+        >
+        <label class="row"
+          ><input type="checkbox" id="set-reduce-motion" /> Kurangi animasi</label
+        >
+        <button id="set-reset" class="btn danger">Hapus progres</button>
+        <button class="btn" data-close="settings">Kembali</button>
+      </div>
+    </section>
+
+    <!-- Info -->
+    <section id="info" class="overlay hidden">
+      <div class="panel menu-panel">
+        <h2>Informasi</h2>
+        <p>
+          Pawon Mantyasih adalah prototipe permainan edukasi. Seluruh teks pada
+          versi ini adalah <strong>placeholder</strong> dan belum divalidasi
+          narasumber. Daftar sumber dan atribusi akan ditampilkan di sini.
+        </p>
+        <h3>Kredit aset</h3>
+        <p>
+          Animasi karakter: <em>Universal Animation Library</em> oleh Quaternius, lisensi CC0 1.0
+          (domain publik), dari quaternius.com. Model 3D low poly (palem, batu menara, jembatan, pohon,
+          rumah kecil, dan lain-lain), rumput, dan kamera berasal dari proyek Mikro (milik tim).
+        </p>
+
+        <button class="btn" data-close="info">Kembali</button>
+      </div>
+    </section>
+
+    <!-- Main menu -->
+    <section id="menu" class="overlay">
+      <div class="panel menu-panel">
+        <h1>PAWON <br />MANTYASIH</h1>
+        <p class="sub">Petualangan jurnal di desa</p>
+        <button id="menu-start" class="btn primary">Mulai</button>
+        <button id="menu-continue" class="btn hidden">Lanjutkan</button>
+        <button id="menu-missions" class="btn">Pilih Misi (uji coba)</button>
+        <button id="menu-settings" class="btn">Pengaturan</button>
+        <button id="menu-info" class="btn">Informasi</button>
+      </div>
+    </section>
+
+    <div id="update-banner" class="panel hidden" role="status">
+      <span>Pembaruan game tersedia.</span>
+      <button id="update-reload" class="btn small primary">Muat ulang</button>
+      <button id="update-later" class="btn small">Nanti</button>
+    </div>
+
+    <div id="area-banner" aria-live="polite">
+      <div class="ornament">❖</div>
+      <div id="area-name"></div>
+      <div id="area-sub"></div>
+    </div>
+    <div id="vignette"></div>
+    <div id="fade"></div>
+
+    <div id="rotate-overlay">
+      <div class="panel">Putar perangkatmu ke mode landscape untuk bermain.</div>
+    </div>
+
+  </body>
+</html>
