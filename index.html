@@ -14,9 +14,9 @@
     <link rel="icon" type="image/png" href="./icons/icon-192.png" />
     <link rel="apple-touch-icon" href="./icons/icon-192.png" />
     <title>Pawon Mantyasih</title>
-    <script type="module" crossorigin src="./assets/main-D6s3mJl3.js"></script>
+    <script type="module" crossorigin src="./assets/main-0efnDZ3l.js"></script>
     <link rel="modulepreload" crossorigin href="./assets/CastLooks-SOABJtB4.js">
-    <link rel="stylesheet" crossorigin href="./assets/main-CQSuWLfL.css">
+    <link rel="stylesheet" crossorigin href="./assets/main-DduEt1ia.css">
   </head>
   <body>
     <canvas id="game-canvas"></canvas>
@@ -30,22 +30,14 @@
       </section>
 
       <div id="actions">
-        <button id="btn-journal" class="icon-btn" aria-label="Buka jurnal (J)">
-          <span class="ico">📖</span><span class="lbl">Jurnal</span>
-        </button>
-        <button id="btn-inventory" class="icon-btn" aria-label="Buka tas (I)">
-          <span class="ico">🎒</span><span class="lbl">Tas</span>
-        </button>
-        <button id="btn-hint" class="icon-btn" aria-label="Petunjuk (H)">
-          <span class="ico">💡</span><span class="lbl">Petunjuk</span>
-        </button>
-        <button id="btn-pause" class="icon-btn" aria-label="Jeda (Esc)">
-          <span class="ico">⏸</span><span class="lbl">Jeda</span>
-        </button>
+        <button id="btn-journal" class="icon-btn" title="Jurnal (J)" aria-label="Jurnal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H19v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H19v-5"/><path d="M9 8h6"/></svg></button>
+        <button id="btn-inventory" class="icon-btn" title="Tas (I)" aria-label="Tas"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 9h11l1.2 11.5H5.3z"/><path d="M9 9V7a3 3 0 0 1 6 0v2"/></svg></button>
+        <button id="btn-hint" class="icon-btn" title="Petunjuk (H)" aria-label="Petunjuk"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 0-3.6 10.8c.7.5 1.1 1.3 1.1 2.2h5c0-.9.4-1.7 1.1-2.2A6 6 0 0 0 12 3z"/><path d="M10 19.5h4M10.8 22h2.4"/></svg></button>
+        <button id="btn-pause" class="icon-btn" title="Jeda (Esc)" aria-label="Jeda"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 5.5v13M15.5 5.5v13"/></svg></button>
       </div>
 
       <div id="objective" class="hidden" aria-live="off">
-        <span id="obj-arrow">➤</span>
+        <svg id="obj-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5 20 20l-8-3.8L4 20z"/></svg>
         <span id="obj-text"></span>
       </div>
       <div id="sandbox-tag" class="hidden">MODE UJI MISI</div>
@@ -62,7 +54,7 @@
       <span id="dialog-status" class="tag hidden"></span>
       <p id="dialog-text"></p>
       <div id="dialog-choices"></div>
-      <button id="dialog-next" class="btn">Lanjut ▸</button>
+      <button id="dialog-next" class="btn primary">▸</button>
     </section>
 
     <!-- Teka-teki -->
@@ -70,14 +62,14 @@
       <div class="panel big">
         <header>
           <h2 id="puzzle-title">Teka-teki</h2>
-          <button id="puzzle-close" class="btn small">Nanti saja</button>
+          <button id="puzzle-close" class="btn small ghost">Nanti</button>
         </header>
         <p id="puzzle-prompt"></p>
         <div id="puzzle-body"></div>
         <p id="puzzle-feedback" role="status" aria-live="polite"></p>
         <footer>
-          <button id="puzzle-hint" class="btn">💡 Petunjuk</button>
-          <button id="puzzle-journal" class="btn hidden">📖 Buka jurnal</button>
+          <button id="puzzle-hint" class="btn">💡</button>
+          <button id="puzzle-journal" class="btn hidden">📖</button>
           <button id="puzzle-skip" class="btn hidden">Lewati</button>
           <button id="puzzle-done" class="btn primary hidden">Lanjut ▸</button>
         </footer>
@@ -88,22 +80,22 @@
     <section id="cooking" class="overlay hidden">
       <div class="panel big">
         <header>
-          <h2>Memasak di Pawon</h2>
-          <button id="cook-close" class="btn small">Tutup</button>
+          <h2>Memasak</h2>
+          <button id="cook-close" class="btn small ghost">✕</button>
         </header>
         <p id="cook-clue"></p>
         <div id="cook-area">
           <div id="cook-bag" class="col"></div>
           <div id="cook-potwrap">
-            <div class="pot-label">🍲 Panci</div>
+            <div class="pot-label">🍲</div>
             <div id="cook-pot"></div>
           </div>
         </div>
         <p id="cook-feedback" role="status" aria-live="polite"></p>
         <footer>
           <button id="cook-go" class="btn primary">🍳 Masak</button>
-          <button id="cook-clear" class="btn">Kembalikan bahan</button>
-          <button id="cook-hint" class="btn">💡 Nenek</button>
+          <button id="cook-clear" class="btn">Kosongkan</button>
+          <button id="cook-hint" class="btn">💡</button>
         </footer>
       </div>
     </section>
@@ -112,14 +104,14 @@
     <section id="journal" class="overlay hidden">
       <div class="panel big">
         <header>
-          <h2>Jurnal Pawon</h2>
-          <button class="btn small" data-close="journal">Tutup</button>
+          <h2>📖 Jurnal</h2>
+          <button class="btn small ghost" data-close="journal">✕</button>
         </header>
         <div id="journal-body"></div>
         <footer>
-          <button id="journal-prev" class="btn">◂ Sebelumnya</button>
+          <button id="journal-prev" class="btn">◂</button>
           <span id="journal-count"></span>
-          <button id="journal-next" class="btn">Berikutnya ▸</button>
+          <button id="journal-next" class="btn">▸</button>
         </footer>
       </div>
     </section>
@@ -128,8 +120,8 @@
     <section id="inventory" class="overlay hidden">
       <div class="panel big">
         <header>
-          <h2>Tas</h2>
-          <button class="btn small" data-close="inventory">Tutup</button>
+          <h2>🎒 Tas</h2>
+          <button class="btn small ghost" data-close="inventory">✕</button>
         </header>
         <div id="inventory-body"></div>
       </div>
@@ -140,12 +132,8 @@
       <div class="panel big">
         <header>
           <h2>Pilih Misi</h2>
-          <button class="btn small" data-close="missions">Tutup</button>
+          <button class="btn small ghost" data-close="missions">✕</button>
         </header>
-        <p class="note">
-          Mulai langsung dari misi mana pun. Misi sebelumnya dianggap sudah selesai. Progres pada mode
-          ini tidak disimpan, jadi simpananmu aman.
-        </p>
         <div id="missions-list"></div>
       </div>
     </section>
@@ -154,10 +142,10 @@
     <section id="pause" class="overlay hidden">
       <div class="panel menu-panel">
         <h2>Jeda</h2>
-        <button id="pause-resume" class="btn">Lanjut</button>
+        <button id="pause-resume" class="btn primary">Lanjut</button>
         <button id="pause-journal" class="btn">Jurnal</button>
         <button id="pause-settings" class="btn">Pengaturan</button>
-        <button id="pause-menu" class="btn">Menu Utama</button>
+        <button id="pause-menu" class="btn">Menu</button>
       </div>
     </section>
 
@@ -166,19 +154,19 @@
       <div class="panel menu-panel">
         <h2>Pengaturan</h2>
         <label class="row"
-          ><input type="checkbox" id="set-audio" checked /> Suara aktif</label
+          ><input type="checkbox" id="set-audio" checked /> Suara</label
         >
         <label class="slider"
           >Musik <input type="range" id="set-music" min="0" max="100" step="5"
         /></label>
         <label class="slider"
-          >Efek suara <input type="range" id="set-sfx" min="0" max="100" step="5"
+          >Efek <input type="range" id="set-sfx" min="0" max="100" step="5"
         /></label>
         <label class="row"
-          ><input type="checkbox" id="set-large-text" /> Ukuran teks besar</label
+          ><input type="checkbox" id="set-large-text" /> Teks besar</label
         >
         <label class="row"
-          ><input type="checkbox" id="set-reduce-motion" /> Kurangi animasi</label
+          ><input type="checkbox" id="set-reduce-motion" /> Kurangi gerak</label
         >
         <button id="set-reset" class="btn danger">Hapus progres</button>
         <button class="btn" data-close="settings">Kembali</button>
@@ -188,19 +176,11 @@
     <!-- Info -->
     <section id="info" class="overlay hidden">
       <div class="panel menu-panel">
-        <h2>Informasi</h2>
-        <p>
-          Pawon Mantyasih adalah prototipe permainan edukasi. Seluruh teks pada
-          versi ini adalah <strong>placeholder</strong> dan belum divalidasi
-          narasumber. Daftar sumber dan atribusi akan ditampilkan di sini.
+        <h2>Info</h2>
+        <p>Prototipe edukasi. Teks masih placeholder dan belum divalidasi narasumber.</p>
+        <p class="credit">
+          Animasi: Universal Animation Library, Quaternius (CC0). Model 3D, rumput, dan kamera: proyek Mikro.
         </p>
-        <h3>Kredit aset</h3>
-        <p>
-          Animasi karakter: <em>Universal Animation Library</em> oleh Quaternius, lisensi CC0 1.0
-          (domain publik), dari quaternius.com. Model 3D low poly (palem, batu menara, jembatan, pohon,
-          rumah kecil, dan lain-lain), rumput, dan kamera berasal dari proyek Mikro (milik tim).
-        </p>
-
         <button class="btn" data-close="info">Kembali</button>
       </div>
     </section>
@@ -208,24 +188,24 @@
     <!-- Main menu -->
     <section id="menu" class="overlay">
       <div class="panel menu-panel">
+        <div class="leafmark" aria-hidden="true">🌾</div>
         <h1>PAWON <br />MANTYASIH</h1>
-        <p class="sub">Petualangan jurnal di desa</p>
-        <button id="menu-start" class="btn primary">Mulai</button>
-        <button id="menu-continue" class="btn hidden">Lanjutkan</button>
-        <button id="menu-missions" class="btn">Pilih Misi (uji coba)</button>
+        <button id="menu-start" class="btn primary big">Mulai</button>
+        <button id="menu-continue" class="btn big hidden">Lanjutkan</button>
+        <button id="menu-missions" class="btn">Pilih Misi</button>
         <button id="menu-settings" class="btn">Pengaturan</button>
         <button id="menu-info" class="btn">Informasi</button>
       </div>
     </section>
 
     <div id="update-banner" class="panel hidden" role="status">
-      <span>Pembaruan game tersedia.</span>
+      <span>Versi baru</span>
       <button id="update-reload" class="btn small primary">Muat ulang</button>
       <button id="update-later" class="btn small">Nanti</button>
     </div>
 
     <div id="area-banner" aria-live="polite">
-      <div class="ornament">❖</div>
+      <div class="ornament">✦</div>
       <div id="area-name"></div>
       <div id="area-sub"></div>
     </div>
@@ -233,7 +213,7 @@
     <div id="fade"></div>
 
     <div id="rotate-overlay">
-      <div class="panel">Putar perangkatmu ke mode landscape untuk bermain.</div>
+      <div class="panel"><div class="rot">⟳</div>Putar ke landscape</div>
     </div>
 
   </body>
