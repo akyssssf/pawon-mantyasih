@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studio Karakter · Pawon Mantyasih</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root { --sky:#8ED8F0; --panel:#FFF6E4; --navy:#173653; --roof:#F28B28; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: Fredoka, system-ui, sans-serif; color: var(--navy); background: var(--sky); overflow: hidden; }
+  #view { position: fixed; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; cursor: grab; }
+  #panel { position: fixed; top: 12px; left: 12px; bottom: 12px; width: min(340px, 92vw); overflow: auto;
+    background: var(--panel); border: 3px solid var(--navy); border-radius: 12px; padding: 12px 14px; font-size: 14px; }
+  h1 { font-size: 19px; margin: 0 0 2px; }
+  .sub { margin: 0 0 8px; font-size: 12.5px; opacity: .75; }
+  h2 { font-size: 12px; margin: 14px 0 6px; text-transform: uppercase; letter-spacing: .06em; opacity: .7; }
+  .row { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 6px; }
+  .row > label { width: 78px; font-size: 13px; }
+  button, select { font: inherit; font-size: 13px; color: var(--navy); background: #fff; border: 2px solid var(--navy); border-radius: 8px; padding: 3px 9px; cursor: pointer; }
+  select { flex: 1; min-width: 0; }
+  button.on { background: var(--roof); color: #fff; }
+  button:focus-visible, select:focus-visible, input:focus-visible { outline: 3px solid var(--roof); outline-offset: 1px; }
+  .sw { width: 26px; height: 26px; padding: 0; border-radius: 50%; }
+  .sw.on { box-shadow: 0 0 0 3px var(--panel), 0 0 0 5px var(--navy); background-image: none; }
+  input[type=color] { width: 34px; height: 28px; padding: 0; border: 2px solid var(--navy); border-radius: 6px; background: #fff; cursor: pointer; }
+  input[type=checkbox] { width: 18px; height: 18px; accent-color: var(--roof); }
+  .chk { display: flex; align-items: center; gap: 4px; font-size: 13px; }
+  pre { background: #fff; border: 2px solid var(--navy); border-radius: 8px; padding: 8px; font-size: 11px; white-space: pre-wrap; max-height: 140px; overflow: auto; margin: 6px 0 0; }
+  #hud { position: fixed; right: 12px; bottom: 12px; display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; max-width: 60vw; }
+  #hud button { background: var(--panel); }
+  #hud button.on { background: var(--roof); }
+  #err { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; text-align: center; padding: 24px; background: var(--panel); font-size: 17px; }
+  @media (max-width: 720px) {
+    #panel { top: auto; left: 8px; right: 8px; bottom: 8px; width: auto; height: 46vh; }
+    #hud { top: 8px; bottom: auto; right: 8px; max-width: 96vw; }
+  }
+</style>
+</head>
+<body>
+<canvas id="view"></canvas>
+<div id="panel"><h1>Studio Karakter</h1><p class="sub">Memuat builder dari pawon-mantyasih.html…</p></div>
+<div id="hud"></div>
+<div id="err"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+'use strict';
+/* Studio memakai blok <script id="ac-chibi"> dari game, jadi tidak ada kode karakter ganda.
+   Butuh server lokal (fetch): python3 -m http.server 5190 --directory V2 lalu buka /karakter.html */
+(async function () {
+  const fail = (msg) => { const e = document.getElementById('err'); e.style.display = 'flex'; e.textContent = msg; };
+  if (typeof THREE === 'undefined') return fail('Three.js gagal dimuat dari CDN. Cek koneksi internet.');
+  try {
+    const html = await (await fetch('pawon-mantyasih.html')).text();
+    const src = new DOMParser().parseFromString(html, 'text/html').getElementById('ac-chibi');
+    if (!src) throw new Error('blok ac-chibi tidak ketemu');
+    const sc = document.createElement('script'); sc.textContent = src.textContent; document.head.appendChild(sc);
+  } catch (e) { return fail('Builder karakter tidak bisa dimuat (' + e.message + '). Buka lewat server lokal, bukan file://.'); }
+  start(window.ACChibi);
+})();
+
+function start(A) {
+  /* ---------- scene, sama dengan pencahayaan game ---------- */
+  const canvas = document.getElementById('view');
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+  renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2));
+  renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  const scene = new THREE.Scene(); scene.background = new THREE.Color(0x8ED8F0);
+  const camera = new THREE.PerspectiveCamera(32, 1, 0.1, 200);
+  scene.add(new THREE.AmbientLight(0xffffff, 0.64));
+  const sun = new THREE.DirectionalLight(0xfff4dc, 0.62); sun.position.set(6, 12, 8); sun.castShadow = true;
+  sun.shadow.mapSize.set(1024, 1024); Object.assign(sun.shadow.camera, { left: -8, right: 8, top: 8, bottom: -8 }); sun.shadow.bias = -0.0005;
+  scene.add(sun);
+  const ground = new THREE.Mesh(new THREE.CylinderGeometry(9, 9, 0.2, 48), new THREE.MeshStandardMaterial({ color: 0x91C83E, flatShading: true, roughness: 0.8, metalness: 0.1 }));
+  ground.position.y = -0.1; ground.receiveShadow = true; scene.add(ground);
+  const path = new THREE.Mesh(new THREE.CylinderGeometry(2.2, 2.2, 0.02, 40), new THREE.MeshStandardMaterial({ color: 0xF2D18D, roughness: 0.8 }));
+  path.position.y = 0.01; path.receiveShadow = true; scene.add(path);
+
+  const view = { yaw: 0.35, pitch: 0.12, dist: 7.2, ty: 1.45, auto: true, walk: false, lineup: false };
+  function resize() {
+    const w = innerWidth, h = innerHeight; renderer.setSize(w, h); camera.aspect = w / h;
+    const side = w > 720 ? Math.min(352, w * 0.92) : 0, down = w > 720 ? 0 : h * 0.24;   // geser subjek dari bawah panel
+    if (side || down) camera.setViewOffset(w, h, -side / 2, down, w, h); else camera.clearViewOffset();
+    camera.updateProjectionMatrix();
+  }
+  addEventListener('resize', resize); resize();
+  let drag = null;
+  canvas.addEventListener('pointerdown', e => { drag = { x: e.clientX, y: e.clientY }; canvas.setPointerCapture(e.pointerId); view.auto = false; syncHud(); });
+  canvas.addEventListener('pointermove', e => { if (!drag) return; view.yaw -= (e.clientX - drag.x) * 0.008; view.pitch = Math.max(-0.2, Math.min(1.1, view.pitch + (e.clientY - drag.y) * 0.006)); drag = { x: e.clientX, y: e.clientY }; });
+  canvas.addEventListener('pointerup', () => { drag = null; });
+  canvas.addEventListener('wheel', e => { e.preventDefault(); view.dist = Math.max(2.4, Math.min(22, view.dist * (1 + Math.sign(e.deltaY) * 0.08))); }, { passive: false });
+
+  /* ---------- karakter ---------- */
+  const clone = (o) => JSON.parse(JSON.stringify(o));
+  const P = A.AC_PRESETS, presetIds = Object.keys(P);
+  let cfg = A.normCfg(clone(P.pemain)), chars = [], mood = null;
+  function disposeAll() { chars.forEach(c => { scene.remove(c.group); c.group.traverse(m => { if (m.isMesh) m.geometry.dispose(); }); }); chars = []; }
+  function rebuild() {
+    disposeAll();
+    if (view.lineup) {
+      presetIds.forEach((id, i) => {
+        const c = A.buildACCharacter(clone(P[id])), n = presetIds.length;
+        const per = Math.ceil(n / 2), row = i < per ? 0 : 1, col = row ? i - per : i, cnt = row ? n - per : per;
+        c.group.position.set((col - (cnt - 1) / 2) * 1.8, 0, row ? -2.4 : 0); scene.add(c.group); chars.push(c);
+      });
+    } else { const c = A.buildACCharacter(clone(cfg)); scene.add(c.group); chars.push(c); }
+    chars.forEach(c => { c.setMood(mood); c.group.traverse(m => { if (m.isMesh) m.castShadow = true; }); });
+    document.getElementById('json') && (document.getElementById('json').textContent = JSON.stringify(stripName(cfg), null, 1));
+  }
+  const stripName = (c) => { const o = clone(c); delete o.name; return o; };
+
+  /* ---------- panel ---------- */
+  const panel = document.getElementById('panel');
+  const LBL = {
+    classic_oval: 'Oval klasik', round_sparkle: 'Bulat berbinar', dot: 'Titik', big_pupil: 'Pupil besar', half_lid: 'Kelopak setengah', sleepy: 'Ngantuk',
+    arched_happy: 'Lengkung senang', sharp_cool: 'Tajam keren', lashed_girl: 'Bulu mata lentik', doe: 'Rusa (doe)', tired: 'Capek', glare: 'Melirik', starry: 'Bintang',
+    none: 'Tidak ada', soft: 'Tipis', thick: 'Tebal', arched: 'Melengkung', worried: 'Cemas', angry: 'Galak',
+    smile: 'Senyum', open_happy: 'Tertawa', cat_mouth: 'Mulut kucing', surprised: 'Kaget', smirk: 'Senyum miring', flat: 'Datar', grin: 'Nyengir', frown: 'Cemberut',
+    ac_boy_swept: 'Poni sapu', ac_bowl_undercut: 'Mangkuk undercut', ac_spiky: 'Jabrik', ac_side_part_slick: 'Belah samping', ac_pigtails: 'Kuncir dua', ac_twin_braids: 'Kepang dua',
+    ac_top_bun: 'Cepol atas', ac_konde: 'Konde Jawa', ac_bob_wave: 'Bob', ac_dreads: 'Gimbal',
+    tshirt_pocket: 'Kaos saku', striped_shirt: 'Kaos belang', vest_shirt: 'Kemeja + rompi', lurik_jawa: 'Lurik Jawa', kebaya_pawon: 'Kebaya + celemek', summer_dress: 'Gaun musim panas',
+    flannel_tied: 'Flanel diikat', jarik_batik: 'Jarik batik', shorts: 'Celana pendek', rolled_chinos: 'Chino digulung', long_pants: 'Celana panjang',
+    slipon: 'Slip-on', pantofel: 'Pantofel', sandal: 'Sandal jepit', bare: 'Nyeker',
+    blangkon: 'Blangkon', ikat: 'Ikat kepala', caping: 'Caping', straw_boater: 'Topi jerami', flat_cap: 'Flat cap', baseball_cap: 'Topi bisbol', flower_crown: 'Mahkota bunga',
+    round: 'Bulat', square: 'Kotak', backpack: 'Ransel', sling: 'Tas selempang'
+  };
+  const lb = (k) => LBL[k] || k;
+  const css = (c) => typeof c === 'number' ? '#' + c.toString(16).padStart(6, '0') : c;
+  function sel(id, list, val) { return `<select id="${id}">${list.map(v => `<option value="${v}"${v === val ? ' selected' : ''}>${lb(v)}</option>`).join('')}</select>`; }
+  function colorIn(id, val) { return `<input type="color" id="${id}" value="${css(val || '#ffffff')}" aria-label="${id}">`; }
+  function swatches(name, list, val) { return list.map(c => `<button class="sw${String(c).toUpperCase() === String(val).toUpperCase() ? ' on' : ''}" data-sw="${name}" data-v="${c}" style="background:${c}" aria-label="${name} ${c}"></button>`).join(''); }
+
+  function renderPanel() {
+    const f = cfg.face, h = cfg.hair || {}, t = cfg.top || {}, w = cfg.waist || { type: 'none' }, b = cfg.bottom || { type: 'none' }, s = cfg.shoes || {}, hat = cfg.hat || { type: 'none' }, gl = cfg.glasses || { type: 'none' }, bag = cfg.bag || { type: 'none' };
+    panel.innerHTML = `<h1>Studio Karakter</h1><p class="sub">Builder modular warga Mantyasih. Seret layar untuk memutar, scroll untuk zoom.</p>
+    <h2>Preset warga</h2><div class="row">${presetIds.map(id => `<button data-preset="${id}">${P[id].name}</button>`).join('')}<button id="rnd">🎲 Acak</button></div>
+    <h2>1 · Kulit</h2><div class="row">${swatches('skin', A.AC_SKINS, A.AC_SKINS[cfg.skin] || cfg.skin)}</div>
+    <h2>2 · Wajah</h2>
+    <div class="row"><label>Mata</label>${sel('eyes', A.AC_EYES, f.eyes)}</div>
+    <div class="row"><label>Iris</label>${swatches('iris', Object.values(A.AC_IRIS), f.iris)}</div>
+    <div class="row"><label>Kelopak</label>${colorIn('lid', f.lid || '#C98A6B')}<span class="chk"><input type="checkbox" id="lashes"${f.lashes ? ' checked' : ''}><label for="lashes">Bulu mata</label></span></div>
+    <div class="row"><label>Alis</label>${sel('brows', A.AC_BROWS, f.brows)}</div>
+    <div class="row"><label>Mulut</label>${sel('mouth', A.AC_MOUTHS, f.mouth)}</div>
+    <div class="row"><span class="chk"><input type="checkbox" id="blush"${f.blush !== false ? ' checked' : ''}><label for="blush">Pipi merona</label></span>
+      <span class="chk"><input type="checkbox" id="freckles"${f.freckles ? ' checked' : ''}><label for="freckles">Bintik</label></span>
+      <span class="chk"><input type="checkbox" id="bandaid"${f.bandaid ? ' checked' : ''}><label for="bandaid">Plester</label></span>
+      <span class="chk"><input type="checkbox" id="beard"${cfg.beard ? ' checked' : ''}><label for="beard">Jenggot</label></span></div>
+    <h2>3 · Pakaian & aksesori</h2>
+    <div class="row"><label>Atasan</label>${sel('top', A.AC_TOPS, t.type)}${colorIn('topC', t.color)}${colorIn('topC2', t.type === 'vest_shirt' ? t.vest : t.color2)}</div>
+    <div class="row"><label>Pinggang</label>${sel('waist', A.AC_WAIST, w.type)}${colorIn('waistC', w.color || '#7DB43C')}</div>
+    <div class="row"><label>Bawahan</label>${sel('bottom', A.AC_BOTTOMS, b.type)}${colorIn('bottomC', b.color || '#7A3B2E')}</div>
+    <div class="row"><label>Sepatu</label>${sel('shoes', A.AC_SHOES, s.type)}${colorIn('shoesC', s.color || '#2F6FD6')}</div>
+    <div class="row"><label>Topi</label>${sel('hat', A.AC_HATS, hat.type)}${colorIn('hatC', hat.color || '#A96835')}</div>
+    <div class="row"><label>Kacamata</label>${sel('glasses', A.AC_GLASSES, gl.type)}${colorIn('glassesC', gl.color || '#2A1C16')}</div>
+    <div class="row"><label>Tas</label>${sel('bag', A.AC_BAGS, bag.type)}${colorIn('bagC', bag.color || '#2F6FD6')}</div>
+    <h2>4 · Rambut</h2>
+    <div class="row"><label>Gaya</label>${sel('hair', A.AC_HAIR_STYLES, h.style)}</div>
+    <div class="row">${swatches('hairC', A.AC_HAIR_COLORS, h.color)}</div>
+    <h2>Konfigurasi (tempel ke AC_PRESETS)</h2>
+    <div class="row"><button id="copy">Salin JSON</button></div><pre id="json"></pre>`;
+    bind();
+  }
+  const $ = (id) => document.getElementById(id);
+  function bind() {
+    panel.querySelectorAll('[data-preset]').forEach(el => el.onclick = () => { cfg = A.normCfg(clone(P[el.dataset.preset])); view.lineup = false; syncHud(); renderPanel(); rebuild(); });
+    $('rnd').onclick = () => { cfg = A.normCfg(A.randomCfg()); view.lineup = false; syncHud(); renderPanel(); rebuild(); };
+    panel.querySelectorAll('[data-sw]').forEach(el => el.onclick = () => {
+      const v = el.dataset.v, k = el.dataset.sw;
+      if (k === 'skin') cfg.skin = v; else if (k === 'iris') cfg.face.iris = v; else if (k === 'hairC') cfg.hair = Object.assign({}, cfg.hair, { color: v, style: (cfg.hair && cfg.hair.style) || 'ac_boy_swept' });
+      renderPanel(); rebuild();
+    });
+    const onCh = (id, fn) => { const el = $(id); if (el) el.addEventListener(el.type === 'color' ? 'input' : 'change', () => { fn(el.type === 'checkbox' ? el.checked : el.value); if (el.tagName === 'SELECT') renderPanel(); rebuild(); }); };
+    ['eyes', 'brows', 'mouth'].forEach(k => onCh(k, v => { cfg.face[k] = v; }));
+    ['lashes', 'blush', 'freckles', 'bandaid'].forEach(k => onCh(k, v => { cfg.face[k] = v; }));
+    onCh('lid', v => { cfg.face.lid = v; });
+    onCh('beard', v => { cfg.beard = v; });
+    onCh('hair', v => { cfg.hair = Object.assign({}, cfg.hair, { style: v }); });
+    onCh('top', v => { cfg.top = Object.assign({}, cfg.top, { type: v }); if (v === 'summer_dress') { cfg.bottom = null; cfg.waist = null; } });
+    onCh('topC', v => { cfg.top.color = v; });
+    onCh('topC2', v => { if (cfg.top.type === 'vest_shirt') cfg.top.vest = v; else cfg.top.color2 = v; });
+    const slot = (k, defC) => { onCh(k, v => { cfg[k] = v === 'none' ? null : Object.assign({ color: defC }, cfg[k], { type: v }); }); onCh(k + 'C', v => { if (cfg[k]) cfg[k].color = v; }); };
+    slot('waist', '#7DB43C'); slot('bottom', '#7A3B2E'); slot('shoes', '#2F6FD6'); slot('hat', '#A96835'); slot('glasses', '#2A1C16'); slot('bag', '#2F6FD6');
+    $('copy').onclick = () => { navigator.clipboard && navigator.clipboard.writeText($('json').textContent); $('copy').textContent = 'Tersalin'; setTimeout(() => { $('copy').textContent = 'Salin JSON'; }, 1200); };
+  }
+
+  /* ---------- HUD: ekspresi + mode ---------- */
+  const hud = document.getElementById('hud');
+  const MOOD_BTN = [[null, 'Normal'], ['happy', 'Senang'], ['laugh', 'Tertawa'], ['surprised', 'Kaget'], ['sad', 'Sedih'], ['cool', 'Keren']];
+  function syncHud() {
+    hud.innerHTML = MOOD_BTN.map(([m, n]) => `<button data-mood="${m || ''}" class="${(mood || '') === (m || '') ? 'on' : ''}">${n}</button>`).join('') +
+      `<button id="walk" class="${view.walk ? 'on' : ''}">Jalan</button><button id="auto" class="${view.auto ? 'on' : ''}">Putar</button><button id="line" class="${view.lineup ? 'on' : ''}">Semua warga</button>`;
+    hud.querySelectorAll('[data-mood]').forEach(b => b.onclick = () => { mood = b.dataset.mood || null; chars.forEach(c => c.setMood(mood)); syncHud(); });
+    $('walk').onclick = () => { view.walk = !view.walk; syncHud(); };
+    $('auto').onclick = () => { view.auto = !view.auto; syncHud(); };
+    $('line').onclick = () => { view.lineup = !view.lineup; view.dist = view.lineup ? 15 : 7.2; syncHud(); rebuild(); };
+  }
+
+  function animate(c, t, move, po) {
+    const ph = t * 10 + po, s = Math.sin(ph) * 0.85 * move;
+    c.legL.rotation.x = s; c.legR.rotation.x = -s;
+    c.armL.rotation.x = -s * 0.9; c.armR.rotation.x = c.o.staff ? -0.25 + s * 0.2 : s * 0.9;
+    c.root.position.y = Math.abs(Math.sin(ph)) * 0.09 * move + Math.sin(t * 2.2 + po) * 0.018 * (1 - move);
+    c.head.rotation.z = Math.sin(ph * 0.5) * 0.05 * move + Math.sin(t * 0.9 + po) * 0.04 * (1 - move);
+    c.tick(t);
+  }
+  const clock = new THREE.Clock();
+  function frame() {
+    const dt = Math.min(clock.getDelta(), 0.05), t = clock.elapsedTime;
+    if (view.auto) view.yaw += dt * 0.35;
+    chars.forEach((c, i) => animate(c, t, view.walk ? 1 : 0, i * 1.7));
+    const cp = Math.cos(view.pitch);
+    camera.position.set(Math.sin(view.yaw) * cp * view.dist, view.ty + Math.sin(view.pitch) * view.dist, Math.cos(view.yaw) * cp * view.dist);
+    camera.lookAt(0, view.lineup ? 1.3 : view.ty, 0);
+    renderer.render(scene, camera);
+    requestAnimationFrame(frame);
+  }
+  renderPanel(); syncHud(); rebuild(); frame();
+  window.__studio = { A, get cfg() { return cfg; }, chars: () => chars, renderer, view, rebuild };
+}
+</script>
+</body>
+</html>
